@@ -28,6 +28,11 @@
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
+    ],
+    "/shop-style-two": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/shop-style-two.js"
     ]
   },
   "ampFirstPages": []
