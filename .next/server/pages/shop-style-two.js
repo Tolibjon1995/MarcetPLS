@@ -13159,7 +13159,7 @@ function linkClicked(e, router, href, as, replace, shallow, scroll) {
     nodeName
   } = e.currentTarget;
   if (nodeName === 'A' && (isModifiedEvent(e) || !(0, _router.isLocalURL)(href))) {
-    // ignore click for browser’s default behavior
+    // ignore click for browser's default behavior
     return;
   }
   e.preventDefault(); //  avoid scroll for urls with anchor refs
@@ -14127,7 +14127,7 @@ function fetchRetry(url, attempts) {
     // Cookies are required to be present for Next.js' SSG "Preview Mode".
     // Cookies may also be required for `getServerSideProps`.
     //
-    // > `fetch` won’t send cookies, unless you set the credentials init
+    // > `fetch` won't send cookies, unless you set the credentials init
     // > option.
     // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
     //

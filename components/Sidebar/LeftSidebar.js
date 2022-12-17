@@ -116,7 +116,7 @@ class LeftSidebar extends Component {
                         <ul className={`collections-list-row ${collection ? 'block' : 'none'}`}>
                             <li className="active">
                                 <Link href="#">
-                                    <a>Women’s</a>
+                                    <a>Women's</a>
                                 </Link>
                             </li>
                             <li>

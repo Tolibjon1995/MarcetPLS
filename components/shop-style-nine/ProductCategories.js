@@ -12,7 +12,7 @@ class ProductCategories extends Component {
                                 <img src={require("../../images/category-product-image/cp-img9.jpg")} alt="image" />
 
                                 <div className="content black-text">
-                                    <p>Don’t Miss Today’s Featured Deals</p>
+                                    <p>Don't Miss Today's Featured Deals</p>
                                     <h3>50% OFF</h3>
 
                                     <Link href="#">

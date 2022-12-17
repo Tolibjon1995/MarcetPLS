@@ -12,7 +12,7 @@ class ProductOffer extends Component {
                                 <img src={require("../../images/furniture-category1.jpg")} alt="image" />
 
                                 <div className="content text-white">
-                                    <span>Don’t Miss Today</span> 
+                                    <span>Don't Miss Today</span> 
                                     <h3>50% OFF</h3>
 
                                     <Link href="#">

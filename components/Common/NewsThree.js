@@ -131,7 +131,7 @@ class NewsThree extends Component {
                                 </ul>
                                 <h3>
                                     <Link href="/blog-details">
-                                        <a>Don’t Miss These Top Ecommerce Conferences in 2020</a>
+                                        <a>Don't Miss These Top Ecommerce Conferences in 2020</a>
                                     </Link>
                                 </h3>
                             </div>

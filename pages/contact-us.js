@@ -54,7 +54,7 @@ class Index extends Component {
                             <div className="col-lg-7 col-md-12">
                                 <div className="contact-form">
                                     <h3>Drop Us A Line</h3>
-                                    <p>We’re happy to answer any questions you have or provide you with an estimate. Just send us a message in the form below with any questions you may have.</p>
+                                    <p>We're happy to answer any questions you have or provide you with an estimate. Just send us a message in the form below with any questions you may have.</p>
 
                                     <form id="contactForm">
                                         <div className="row">
