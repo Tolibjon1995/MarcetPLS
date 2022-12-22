@@ -4,7 +4,7 @@ import Link from 'next/link';
 class CategoryProducts extends Component {
     render() {
         return (
-            <section className="category-products-area pb-60">
+            <section className="category-products-area pt-60 pb-60" id='turkumlar'>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4 col-md-12">

@@ -77,6 +77,7 @@ class Products extends React.Component {
                 <div className="container">
                     <div className="tab products-category-tab">
                         <div className="row">
+                        
                             <div className="col-lg-12 col-md-12">
                                 <ul className="tabs">
                                     <li
@@ -88,21 +89,7 @@ class Products extends React.Component {
                                         </span>
                                     </li>
                                     
-                                    <li
-                                        onClick={(e) => {e.preventDefault(); this.openTabSection(e, 'tab2')}}
-                                    >
-                                        <span className="tabs-nav-text">
-                                            <span className="dot"></span> Special Products
-                                        </span>
-                                    </li>
                                     
-                                    <li
-                                        onClick={(e) => {e.preventDefault(); this.openTabSection(e, 'tab3')}}
-                                    >
-                                        <span className="tabs-nav-text">
-                                            <span className="dot"></span> Featured Products
-                                        </span>
-                                    </li>
                                 </ul>
                             </div>
 
@@ -121,7 +108,7 @@ class Products extends React.Component {
                                                                 </a>
                                                             </Link>
 
-                                                            <ul>
+                                                            {/* <ul>
                                                                 <li>
                                                                     <Link href="#">
                                                                         <a 
@@ -150,10 +137,14 @@ class Products extends React.Component {
                                                                         this.compareButton(data.id)
                                                                     }
                                                                 </li>
-                                                            </ul>
+                                                            </ul> */}
                                                         </div>
-
-                                                        <div className="product-content">
+                                                         <div className='row'>
+                                                            <div className='col-10'>
+                                                            <div className="product-content">
+                                                            <h4>  
+                                                                MAREEW 
+                                                            </h4>
                                                             <h3>
                                                                 <Link href="/product/[id]" as={`/product/${data.id}`}>
                                                                     <a>{data.title}</a>
@@ -161,163 +152,18 @@ class Products extends React.Component {
                                                             </h3>
 
                                                             <div className="product-price">
-                                                                <span className="new-price">${data.price}</span>
+                                                                <span className="new-price">{data.price} So’m</span>
                                                             </div>
-
-                                                            <div className="rating">
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="far fa-star"></i>
+                                                        </div>
                                                             </div>
-                                                            
-                                                            <AddToCart {...data} />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div id="tab2" className="tabs_item">
-                                        <div className="row">
-                                            {products.map((data, idx) => (
-                                                <div className="col-lg-3 col-sm-6 col-6" key={idx}>
-                                                    <div className="single-product-box">
-                                                        <div className="product-image">
-                                                            <Link href="/product/[id]" as={`/product/${data.id}`}>
-                                                                <a>
-                                                                    <img src={data.image} alt="image" />
-                                                                    <img src={data.imageHover} alt="image" />
-                                                                </a>
-                                                            </Link>
-
-                                                            <ul>
-                                                                <li>
-                                                                    <Link href="#">
-                                                                        <a 
-                                                                            data-tip="Quick View" 
-                                                                            data-place="left" 
-                                                                            onClick={e => {
-                                                                                    e.preventDefault(); 
-                                                                                    this.openModal();
-                                                                                    this.handleModalData(data)
-                                                                                }
-                                                                            }
-                                                                        >
-                                                                            <i className="far fa-eye"></i>
+                                                            <div className='col-2 pl-1 d-flex align-items-center'>
+                                                                <Link href="#">
+                                                                        <a data-tip="Sevimlilarga qo'shish" data-place="left">
+                                                                            <i className="text-red fs-24 far fa-heart"></i>
                                                                         </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    <Link href="#">
-                                                                        <a data-tip="Add to Wishlist" data-place="left">
-                                                                            <i className="far fa-heart"></i>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    {
-                                                                        this.compareButton(data.id)
-                                                                    }
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-
-                                                        <div className="product-content">
-                                                            <h3>
-                                                                <Link href="/product/[id]" as={`/product/${data.id}`}>
-                                                                    <a>{data.title}</a>
                                                                 </Link>
-                                                            </h3>
-
-                                                            <div className="product-price">
-                                                                <span className="new-price">${data.price}</span>
                                                             </div>
-
-                                                            <div className="rating">
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="far fa-star"></i>
-                                                            </div>
-
-                                                            <AddToCart {...data} />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div id="tab3" className="tabs_item">
-                                        <div className="row">
-                                            {products.map((data, idx) => (
-                                                <div className="col-lg-3 col-sm-6 col-6" key={idx}>
-                                                    <div className="single-product-box">
-                                                        <div className="product-image">
-                                                            <Link href="/product/[id]" as={`/product/${data.id}`}>
-                                                                <a>
-                                                                    <img src={data.image} alt="image" />
-                                                                    <img src={data.imageHover} alt="image" />
-                                                                </a>
-                                                            </Link>
-
-                                                            <ul>
-                                                                <li>
-                                                                    <Link href="#">
-                                                                        <a 
-                                                                            data-tip="Quick View" 
-                                                                            data-place="left" 
-                                                                            onClick={e => {
-                                                                                    e.preventDefault(); 
-                                                                                    this.openModal();
-                                                                                    this.handleModalData(data)
-                                                                                }
-                                                                            }
-                                                                        >
-                                                                            <i className="far fa-eye"></i>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    <Link href="#">
-                                                                        <a data-tip="Add to Wishlist" data-place="left">
-                                                                            <i className="far fa-heart"></i>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    {
-                                                                        this.compareButton(data.id)
-                                                                    }
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-
-                                                        <div className="product-content">
-                                                            <h3>
-                                                                <Link href="/product/[id]" as={`/product/${data.id}`}>
-                                                                    <a>{data.title}</a>
-                                                                </Link>
-                                                            </h3>
-
-                                                            <div className="product-price">
-                                                                <span className="new-price">${data.price}</span>
-                                                            </div>
-
-                                                            <div className="rating">
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="fas fa-star"></i>
-                                                                <i className="far fa-star"></i>
-                                                            </div>
-
-                                                            <AddToCart {...data} />
-                                                        </div>
+                                                         </div>
                                                     </div>
                                                 </div>
                                             ))}

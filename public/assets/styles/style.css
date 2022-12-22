@@ -108,6 +108,10 @@ a:hover, a:focus {
   padding-top: 60px;
 }
 
+.mt-60 {
+  margin-top: 60px;
+}
+
 .pb-30 {
   padding-bottom: 30px;
 }
@@ -1016,10 +1020,12 @@ Modal CSS
   font-size: 13px;
   text-transform: initial;
   margin-bottom: 5px;
+  text-align: left;
 }
 
 .shoppingCartModal .modal-content .modal-body .product-cart-content .product-cart .product-content h3 a {
   color: #222222;
+  text-align: left;
 }
 
 .shoppingCartModal .modal-content .modal-body .product-cart-content .product-cart .product-content span {
@@ -1464,6 +1470,10 @@ Main Banner Area CSS
   background-image: url(../../../images/main-banner1.jpg);
 }
 
+.main-banner.bg-baner {
+  background: #752A2A;
+}
+
 .main-banner.item-bg2 {
   background-image: url(../../../images/main-banner2.jpg);
 }
@@ -1477,12 +1487,12 @@ Main Banner Area CSS
 }
 
 .main-banner-content {
-  max-width: 520px;
+  
 }
 
 .main-banner-content span {
   font-size: 14px;
-  color: #666666;
+  color: #FFFFFF;
   display: block;
 }
 
@@ -1492,12 +1502,13 @@ Main Banner Area CSS
   text-transform: uppercase;
   margin-top: 8px;
   margin-bottom: 15px;
+  color: #FFFFFF;
 }
 
 .main-banner-content p {
   line-height: initial;
   font-size: 18px;
-  color: #222222;
+  color: #FFFFFF;
   margin-bottom: 35px;
 }
 
@@ -2221,9 +2232,24 @@ All Products Area CSS
   margin-top: 20px;
 }
 
+.single-product-box .product-content h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #FF0000;
+  font-weight: bold;
+  text-align:left;
+}
+.fs-24{
+  font-size:24px;
+}
+.text-red{
+  color: #FF0000;
+}
+
 .single-product-box .product-content h3 {
   font-size: 16px;
   margin-bottom: 0;
+  text-align:left;
 }
 
 .single-product-box .product-content h3 a {
@@ -2237,6 +2263,7 @@ All Products Area CSS
 .single-product-box .product-content .product-price {
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align:left;
 }
 
 .single-product-box .product-content .product-price span {
@@ -8529,7 +8556,17 @@ Main Banner Area CSS
 }
 
 .offer-area-two.offer-bg-image {
-  background-image: url(../../../images/offer-bg3.jpg);
+  background-color: #000000;
+  background-image: url(../../../images/gsap.jpg);
+  background-size:50% 60%;
+  background-position:left;
+}
+
+.offer-area-two.offer-bg-image2 {
+  background-color: #000000;
+  background-image: url(../../../images/gsap.jpg);
+  background-size:50% 60%;
+  background-position:right;
 }
 
 .offer-area-two .offer-content-box {

@@ -76,7 +76,45 @@ class MegaMenu extends Component {
                             </button>
 
                             <div className={classOne} id="navbarSupportedContent">
-                                <ul className="navbar-nav">
+                            <ul className="navbar-nav">
+                                <li className="nav-item p-relative">
+                                    <Link href="#turkumlar">
+                                        <a className="nav-link active">
+                                           Turkumlar
+                                        </a>
+                                    </Link>
+                                </li>
+                                <li className="nav-item p-relative">
+                                    <Link href="#">
+                                        <a className="nav-link active">
+                                           Brendlar
+                                        </a>
+                                    </Link>
+                                </li>
+                                <li className="nav-item p-relative">
+                                    <Link href="#">
+                                        <a className="nav-link active">
+                                           Profil
+                                        </a>
+                                    </Link>
+                                </li>
+                                <li className="nav-item p-relative">
+                                    <Link href="#">
+                                        <a className="nav-link active">
+                                           Sevimlilar
+                                        </a>
+                                    </Link>
+                                </li>
+                            </ul>
+                                {/* <ul className="navbar-nav">
+                                  <li className="nav-item p-relative">
+                                        <Link href="#">
+                                            <a className="nav-link active">
+                                                Home <i className="fas fa-chevron-down"></i>
+                                            </a>
+                                        </Link>
+                                    </li>
+
                                     <li className="nav-item p-relative">
                                         <Link href="#">
                                             <a className="nav-link active">
@@ -1073,7 +1111,7 @@ class MegaMenu extends Component {
                                             </li>
                                         </ul>
                                     </li>
-                                </ul>
+                                </ul> */}
 
                                 <div className="others-option">
                                     <div className="option-item">
@@ -1109,7 +1147,7 @@ class MegaMenu extends Component {
 
                                     <div className="option-item">
                                         <Link href="/login">
-                                            <a>Login</a>
+                                            <a>Kirish</a>
                                         </Link>
                                     </div>
 
@@ -1121,7 +1159,7 @@ class MegaMenu extends Component {
                                                     this.handleCart()
                                                 }}
                                             >
-                                                Cart({products.length}) <i className="fas fa-shopping-bag"></i>
+                                                Savat({products.length}) <i className="fas fa-shopping-bag"></i>
                                             </a>
                                         </Link>
                                     </div>

@@ -5,7 +5,9 @@ import Banner from '../components/shop-style-one/Banner';
 import OfferArea from '../components/shop-style-one/OfferArea';
 import Products from '../components/shop-style-one/Products';
 import CategoryProducts from '../components/shop-style-one/CategoryProducts';
+import ProductOffer from '../components/shop-style-one/ProductOffer';
 import TrendingProducts from '../components/shop-style-one/TrendingProducts';
+import TrendingProductsSlide from '../components/shop-style-one/TrendingProductsSlide';
 import BestSeller from '../components/shop-style-one/BestSellers';
 import Facility from '../components/shop-style-one/Facility';
 import Testimonials from '../components/Common/Testimonials';
@@ -23,19 +25,23 @@ const Index = () => {
         <React.Fragment>
             <Navbar />
             <Banner />
-            <OfferArea />
-            <Products products={products} CompareProducts={addedItemsToCompare} />
-            <CategoryProducts />
-            <TrendingProducts products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            {/* <OfferArea /> */}
+            <Products products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <CategoryProducts  />
+            <ProductOffer left={true} />
+            <TrendingProductsSlide  products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <ProductOffer left={false} />
+            <TrendingProductsSlide  products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            {/* <TrendingProducts products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
             <BestSeller products={products.slice(8, 12)} CompareProducts={addedItemsToCompare} />
             <Facility />
             <Testimonials />
             <News />
-            <Subscribe />
+            <Subscribe /> */}
             <Partner />
             <InstagramPhoto />
             <Footer />
-            <AddsModal />
+            {/* <AddsModal /> */}
         </React.Fragment>
     );
 }
