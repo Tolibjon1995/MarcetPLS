@@ -10,13 +10,13 @@ class Footer extends Component {
                         <div className="col-lg-3 col-md-6">
                             <div className="single-footer-widget">
                                 <div className="logo">
-                                    <Link href="/">
-                                        <a>
-                                            <img src={require("../../images/logo.png")} alt="logo" />
-                                        </a>
-                                    </Link>
+                                <Link href="/">
+                                    <a className="navbar-brand">
+                                        <img src={require("../../images/logo.png")} alt="logo" width="150" height="30" />
+                                    </a>
+                                </Link>
                                 </div>
-
+                                    
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                             </div>
                         </div>

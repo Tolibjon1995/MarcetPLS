@@ -24,7 +24,7 @@ class Banner extends Component {
                             </div>
                             </div>
                             <div className='col-12 col-md-6'>
-                                 <img src={require("../../images/mareew081.png")} alt='' />       
+                                 <img className="img-animate" src={require("../../images/mareew081.png")} alt='' />       
                             </div>
                             </div>
                         </div>
