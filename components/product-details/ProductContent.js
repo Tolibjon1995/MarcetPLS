@@ -80,7 +80,7 @@ class ProductContent extends Component {
                             <span className="new-price">$191.00</span>
                         </div>
 
-                        <div className="product-review">
+                        {/* <div className="product-review">
                             <div className="rating">
                                 <i className="fas fa-star"></i>
                                 <i className="fas fa-star"></i>
@@ -91,7 +91,7 @@ class ProductContent extends Component {
                             <Link href="#">
                                 <a className="rating-count">3 reviews</a>
                             </Link>
-                        </div>
+                        </div> */}
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
 
@@ -187,11 +187,11 @@ class ProductContent extends Component {
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            {/* <Link href="#">
                                 <a>
                                     <i className="far fa-envelope"></i> Ask about this product
                                 </a>
-                            </Link>
+                            </Link> */}
                         </div>
 
                         <div className="product-add-to-cart">

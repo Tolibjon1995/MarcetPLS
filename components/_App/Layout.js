@@ -9,12 +9,16 @@ const Layout = ({ children }) => {
         <React.Fragment>
             <ReactTooltip  />
             <Head>
-                <title>Sneaker Wars</title>
-                <meta name="description" content="Sneaker Wars is a marketplace for salers and customers" />
-                <meta name="og:title" property="og:title" content="Sneaker Wars MarketPlace"></meta>
-                <meta name="twitter:card" content="Sneaker Wars"></meta>
-                <link rel="canonical" href="https://novine-react.envytheme.com/"></link>
-                <meta property="og:image" content="https://res.cloudinary.com/dev-empty/image/upload/v1590076309/ppuymfucr4jubqvhqaqt.jpg" />
+                <title>Mareew</title>
+                <meta name="description" content="O'zbekistondagi birinchi raqamli internet do'kon" />
+                <meta name="og:title" property="og:title" content="Mareew "></meta>
+                <meta name="twitter:card" content="Mareew"></meta>
+                <link rel="canonical" href="../../images/logo.png"></link>
+                <link rel="icon" type="image/png" href="../../images/logo.png"></link>
+                <meta property="og:image" content="../../images/logo.png" />
+                
+                {/* https://res.cloudinary.com/dev-empty/image/upload/v1590076309/ppuymfucr4jubqvhqaqt.jpg */}
+                {/* https://novine-react.envytheme.com/ */}
             </Head>
             { children }
             <ToastContainer transition={Slide} />

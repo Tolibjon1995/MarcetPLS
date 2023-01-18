@@ -85,7 +85,7 @@ class MegaMenu extends Component {
                                     </Link>
                                 </li>
                                 <li className="nav-item p-relative">
-                                    <Link href="#">
+                                    <Link href="/brends">
                                         <a className="nav-link active">
                                            Brendlar
                                         </a>

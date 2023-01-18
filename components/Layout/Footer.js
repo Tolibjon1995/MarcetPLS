@@ -23,65 +23,38 @@ class Footer extends Component {
 
                         <div className="col-lg-3 col-md-6">
                             <div className="single-footer-widget">
-                                <h3>Quick Links</h3>
+                                <h3>Tezkor linklar</h3>
 
                                 <ul className="quick-links">
                                     <li>
-                                        <Link href="/about">
-                                            <a>About Us</a>
+                                        <Link href="#turkumlar">
+                                            <a>Turkumlar</a>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/faq">
-                                            <a>Faq's</a>
+                                        <Link href="/brends">
+                                            <a>Brendlar</a>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/customer-service">
-                                            <a>Customer Services</a>
+                                        <Link href="#">
+                                            <a>Profil</a>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/contact-us">
-                                            <a>Contact Us</a>
+                                        <Link href="#">
+                                            <a>Sevimlilar</a>
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div className="col-lg-3 col-md-6">
-                            <div className="single-footer-widget">
-                                <h3>Information</h3>
-
-                                <ul className="information-links">
-                                    <li>
-                                        <Link href="/about">
-                                            <a>About Us</a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/contact-us">
-                                            <a>Contact Us</a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/sizing-guide">
-                                            <a>Sizing Guide</a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/customer-service">
-                                            <a>Customer Services</a>
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        
 
                         <div className="col-lg-3 col-md-6">
                             <div className="single-footer-widget">
-                                <h3>Contact Us</h3>
+                                <h3>Kontaktlar</h3>
 
                                 <ul className="footer-contact-info">
                                     <li>
@@ -103,17 +76,52 @@ class Footer extends Component {
                                 </ul>
                             </div>
                         </div>
+
+                        <div className="col-lg-3 col-md-6">
+                            <div className="single-footer-widget">
+                                <h3>Ijtimoiy tarmoqlar</h3>
+
+                                <ul className="information-links">
+                                    <li>
+                                        <Link href="#">
+                                            <a>
+                                            Facebook</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="#">
+                                            <a>Telegram</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="#">
+                                            <a>Instagram</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="#">
+                                            <a>Youtube</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="#">
+                                            <a>Whatsapp</a>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="copyright-area">
                     <div className="container">
                         <div className="row align-items-center">
-                            <div className="col-lg-6 col-md-6">
-                                <p>Copyright @ 2020 Novine. All Rights Reserved By <a href="https://envytheme.com/" target="_blank">EnvyTheme.com</a></p>
+                            <div className="col text-center">
+                                <p>Copyright @ 2022 Novine. All Rights Reserved By <a href="#" target="_blank">mareew.com</a></p>
                             </div>
 
-                            <div className="col-lg-6 col-md-6">
+                            {/* <div className="col-lg-6 col-md-6">
                                 <ul className="payment-card">
                                     <li>
                                         <Link href="#">
@@ -151,7 +159,7 @@ class Footer extends Component {
                                         </Link>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

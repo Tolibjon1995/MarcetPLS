@@ -60,11 +60,11 @@ class DetailsTab extends Component {
                                     </span>
                                 </li>
 
-                                <li onClick={(e) => {e.preventDefault(); this.openTabSection(e, 'tab5')}}>
+                                {/* <li onClick={(e) => {e.preventDefault(); this.openTabSection(e, 'tab5')}}>
                                     <span className="tabs-nav-text">
                                         <div className="dot"></div> Reviews
                                     </span>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
 
@@ -174,7 +174,7 @@ class DetailsTab extends Component {
                                     </div>
                                 </div>
 
-                                <div id="tab5" className="tabs_item">
+                                {/* <div id="tab5" className="tabs_item">
                                     <div className="products-details-tab-content">
                                         <div className="product-review-form">
                                             <h3>Customer Reviews</h3>
@@ -319,7 +319,7 @@ class DetailsTab extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
