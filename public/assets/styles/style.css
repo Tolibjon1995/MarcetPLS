@@ -5567,6 +5567,13 @@ Products Details Area CSS
   transition: 0.5s;
 }
 
+.produckt-img{
+  width: 262px;
+  height: 230px;
+  object-fit: cover;
+}
+
+
 .products-page-gallery .product-page-gallery-preview .slick-slide span:hover::before, .products-page-gallery .product-page-gallery-preview .slick-slide span:focus::before {
   visibility: visible;
   opacity: 1;
@@ -5708,7 +5715,7 @@ Products Details Area CSS
   right: 0;
   top: 0;
   bottom: 0;
-  background: #eeeeee;
+  /* background: #eeeeee; */
   border-radius: 50%;
   margin: 2px;
   -webkit-transition: 0.5s;
@@ -9619,6 +9626,24 @@ Pagination CSS
   background-color: #222222;
   color: #ffffff;
   border-color: #222222;
+}
+
+@media (max-width: 576px) {
+  .produckt-img{
+    height: 180px;
+  }
+  .main-banner-content h1{
+    font-size: 12px;
+
+  }
+  .main-banner-content p{
+    font-size: 8px;
+    
+  }
+  .main-banner{
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
 }
 
 /* End home Six, Seven, Eight, Nine, Ten & Eleven Style */
