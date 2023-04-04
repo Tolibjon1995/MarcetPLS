@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'
 import Navbar from '../components/Layout/Navbar';
 import Banner from '../components/shop-style-one/Banner';
@@ -17,10 +17,24 @@ import Partner from '../components/Common/Partner';
 import InstagramPhoto from '../components/Common/InstagramPhoto';
 import Footer from '../components/Layout/Footer';
 import AddsModal from '../components/Modal/AddsModal';
+import Axios from 'axios';
 
 const Index = () => {
+    const [productss, setProductss] = useState([])
     const products = useSelector((state) => state.products)
+    const products2 = useSelector((state) => state.products2)
+    console.log(products2);
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
+
+    useEffect(() => {
+        Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
+            if (res.status == 200) {
+                setProductss(res.data.products);
+                
+            }
+
+        })
+    }, [])
     return (
         <React.Fragment>
             <Navbar />
@@ -29,9 +43,9 @@ const Index = () => {
             <Products products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
             <CategoryProducts  />
             <ProductOffer left={true} />
-            <TrendingProductsSlide  products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <TrendingProductsSlide  productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
             <ProductOffer left={false} />
-            <TrendingProductsSlide  products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <TrendingProductsSlide  productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
             {/* <TrendingProducts products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
             <BestSeller products={products.slice(8, 12)} CompareProducts={addedItemsToCompare} />
             <Facility />

@@ -28,7 +28,7 @@ class DetailsTab extends Component {
 
     render() {
         return (
-            <div className="col-lg-12 col-md-12">
+            <div className="col-lg-12 col-md-12 mt-60">
                 <div className="tab products-details-tab">
                     <div className="row">
                         <div className="col-lg-12 col-md-12">

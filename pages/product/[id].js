@@ -16,9 +16,9 @@ const Product = () => {
     const [loading, setLoading] = useState(false)
 
     const router = useRouter()
-    const id = router.query.id
+    const { id } = router?.query
 
-    console.log(router);
+    
     const product = useSelector((state) => state.products.find(item => item.id === parseInt(id)))
 
     const products = useSelector((state) => state.products)
@@ -26,15 +26,19 @@ const Product = () => {
 
 
     useEffect(() => {
-        setLoading(true)
-        axios.get(`https://api.mareew.uz/shared/product/${id}`).then((res) => {
-            if (res.status == 200) {
-                setProducti(res.data.product);
-                setLoading(false)
-            } else if (res.status == 400) {
-            }
-        })
-    }, [])
+        
+        if(id){
+            setLoading(true)
+            axios.get(`https://api.mareew.uz/shared/product/${id}`).then(({status, data: {product}}) => {
+                
+                if (status == 200) {
+                    setProducti(product);
+                    setLoading(false)
+                } else if (status == 400) {
+                }
+            })
+        }
+    }, [id])
     return (
         <React.Fragment>
             <Navbar />

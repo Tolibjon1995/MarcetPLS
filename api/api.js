@@ -1,0 +1,1 @@
+export const BaseURL = 'https://api.mareew.uz/'

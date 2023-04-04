@@ -60,8 +60,9 @@ class TrendingProductsSlide extends Component {
     }
 
     render() {
-        let { products } = this.props;
+        let { productss } = this.props;
         const { modalOpen } = this.state;
+        let baseURL = 'https://api.mareew.uz/'
         return (
             <section className="trending-products-area ptb-60">
                 <div className="container">
@@ -74,14 +75,14 @@ class TrendingProductsSlide extends Component {
                             className="trending-products-slides-two owl-carousel owl-theme"
                             {...options}
                         >
-                            {products.map((data, idx) => (
+                            {productss.map((data, idx) => (
                                 <div className="col-12" key={idx}>
                                 <div className="single-product-box w-100">
                                     <div className="product-image">
                                         <Link href="/product/[id]" as={`/product/${data.id}`}>
                                             <a>
-                                                <img src={data.image} alt="image" />
-                                                <img src={data.imageHover} alt="image" />
+                                                <img src={baseURL+data.images} alt="image" />
+                                                {/* <img src={data.imageHover} alt="image" /> */}
                                             </a>
                                         </Link>
 
@@ -124,12 +125,12 @@ class TrendingProductsSlide extends Component {
                                         </h4>
                                         <h3>
                                             <Link href="/product/[id]" as={`/product/${data.id}`}>
-                                                <a>{data.title}</a>
+                                                <a>{data.name}</a>
                                             </Link>
                                         </h3>
 
                                         <div className="product-price">
-                                            <span className="new-price">{data.price} So’m</span>
+                                            <span className="new-price">{data.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} So’m</span>
                                         </div>
                                     </div>
                                         </div>

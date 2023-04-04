@@ -5,7 +5,7 @@ class ProductOffer extends Component {
     render() {
         let { left } = this.props;
         return (
-            <div className={`offer-area-two ${left ? 'offer-bg-image' : 'offer-bg-image2'} mt-60`}>
+            <div  className={`offer-area-two ${left ? 'offer-bg-image' : 'offer-bg-image2'} mt-60`}>
                 <div className="container-fluid">
                     <div className="row">
                         <div className={`col-lg-5 col-md-6 ${left ? 'offset-lg-7 offset-md-6' : 'offset-lg-0 offset-md-0'} `}>

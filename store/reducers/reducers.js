@@ -27,11 +27,13 @@ import {
     ADD_QUANTITY_WITH_NUMBER,
     RESET_CART,
     ADD_TO_COMPARE,
-    REMOVE_ITEM_FROM_COMPARE
+    REMOVE_ITEM_FROM_COMPARE,
+    GET_PR
 } from '../actions/action-types/action-names'
 
 const initialState = {
     products: products,
+    products2: [],
     productsCollectionSix: productsCollectionSix,
     productsCollectionSeven: productsCollectionSeven,
     productsCollectionEight: productsCollectionEight,
@@ -205,6 +207,12 @@ const reducers = (state = initialState, action) => {
             addedItems: [],
             total: 0,
             shipping: 0
+        }
+    }
+    if(action.type === GET_PR){
+        return {
+            ...state,
+            products2: action.payload
         }
     }
     

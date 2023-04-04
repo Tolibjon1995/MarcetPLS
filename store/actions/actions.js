@@ -1,4 +1,5 @@
-import { 
+import Axios from 'axios';
+import {
     ADD_TO_CART,
     REMOVE_ITEM,
     SUB_QUANTITY,
@@ -6,10 +7,25 @@ import {
     ADD_QUANTITY_WITH_NUMBER,
     RESET_CART,
     ADD_TO_COMPARE,
-    REMOVE_ITEM_FROM_COMPARE
+    REMOVE_ITEM_FROM_COMPARE,
+    GET_PR
 } from './action-types/action-names'
 
 //add cart action
+export const getProducts = (id) => {
+    Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
+        console.log(res);
+        if (res.status == 200) {
+            return {
+                type: GET_PR,
+                payload: res.data.products
+            }
+
+        }
+
+    })
+    
+}
 export const addToCart = (id) => {
     return {
         type: ADD_TO_CART,

@@ -279,7 +279,7 @@ const Products = () => {
 
     const handleGetProduct = () => {
         axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
-            console.log(res);
+            
         })
     }
 
@@ -287,7 +287,7 @@ const Products = () => {
         axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
             if (res.status == 200) {
                 setProductss(res.data.products);
-                console.log(productss);
+                
             }
 
         })
