@@ -21,6 +21,7 @@ import Axios from 'axios';
 
 const Index = () => {
     const [productss, setProductss] = useState([])
+    const [brend, setBrend] = useState([])
     const products = useSelector((state) => state.products)
     const products2 = useSelector((state) => state.products2)
     console.log(products2);
@@ -30,22 +31,41 @@ const Index = () => {
         Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
             if (res.status == 200) {
                 setProductss(res.data.products);
+            }
+        })
+        Axios.get(`https://api.mareew.uz/shared/brand/`).then((res) => {
+            if (res.status == 200) {
+                setBrend(res.data.brands);
                 
             }
-
         })
     }, [])
+    
     return (
         <React.Fragment>
             <Navbar />
             <Banner />
             {/* <OfferArea /> */}
-            <Products products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
-            <CategoryProducts  />
-            <ProductOffer left={true} />
-            <TrendingProductsSlide  productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <Products productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <CategoryProducts />
+            {
+                brend?.map((item, index) => {
+                    
+                    return (
+                        <>
+                            <ProductOffer 
+                            bgImg={item} 
+                            
+                            left={index % 2 === 0 ? true : false } />
+                            <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+                        </>
+                    )
+                })
+            }
+            {/* <ProductOffer  left={true} />
+            <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
             <ProductOffer left={false} />
-            <TrendingProductsSlide  productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} /> */}
             {/* <TrendingProducts products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
             <BestSeller products={products.slice(8, 12)} CompareProducts={addedItemsToCompare} />
             <Facility />

@@ -212,11 +212,11 @@ import AddToCart from '../Shared/AddToCart';
 import AddToCompare from '../Shared/AddToCompare';
 import axios from 'axios';
 
-const Products = () => {
+const Products = ({productss}) => {
     let baseURL = 'https://api.mareew.uz/'
     const [modalData, setModalData] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
-    const [productss, setProductss] = useState([])
+    // const [productss, setProductss] = useState([])
 
 
     const openTabSection = (evt, tabNmae) => {
@@ -283,15 +283,15 @@ const Products = () => {
         })
     }
 
-    useEffect(() => {
-        axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
-            if (res.status == 200) {
-                setProductss(res.data.products);
+    // useEffect(() => {
+    //     axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
+    //         if (res.status == 200) {
+    //             setProductss(res.data.products);
                 
-            }
+    //         }
 
-        })
-    }, [])
+    //     })
+    // }, [])
 
 
     return (

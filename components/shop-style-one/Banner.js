@@ -20,15 +20,15 @@ const Banner = () => {
 
         <div>
             <Swiper
-                slidesPerView={1}
+                // slidesPerView={1}
                 loop={true}
-                spaceBetween={30}
-                effect={"fade"}
+                spaceBetween={0}
+                // effect={"fade"}
                 autoplay={{
-                    delay: 1000,
+                    delay: 5000,
                     disableOnInteraction: false,
                 }}
-                
+
                 navigation={true}
                 modules={[EffectFade, Navigation, Pagination, Autoplay]}
                 className="mySwiper"

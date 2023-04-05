@@ -8566,15 +8566,15 @@ Main Banner Area CSS
 
 .offer-area-two.offer-bg-image {
   background-color: #000000;
-  background-image: url(../../../images/gsap.jpg);
-  background-size:50% 60%;
+  /* background-image: url(../../../images/gsap.jpg); */
+  background-size: 40% 50%;
   background-position:left;
 }
 
 .offer-area-two.offer-bg-image2 {
   background-color: #000000;
-  background-image: url(../../../images/gsap.jpg);
-  background-size:50% 60%;
+  /* background-image: url(../../../images/gsap.jpg); */
+  background-size: 40% 50%;
   background-position:right;
 }
 
