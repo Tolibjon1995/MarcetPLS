@@ -18,8 +18,14 @@ import InstagramPhoto from '../components/Common/InstagramPhoto';
 import Footer from '../components/Layout/Footer';
 import AddsModal from '../components/Modal/AddsModal';
 import Axios from 'axios';
+import { useRouter } from 'next/router';
 
 const Index = () => {
+    const router = useRouter()
+    const { telegramcode } = router?.query
+    console.log(telegramcode);
+
+
     const [productss, setProductss] = useState([])
     const [brend, setBrend] = useState([])
     const products = useSelector((state) => state.products)
@@ -27,8 +33,12 @@ const Index = () => {
     console.log(products2);
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
 
-    useEffect(() => {
-        Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
+    const load = ()=>{
+        if (telegramcode != '') {
+        
+        }
+        if (telegramcode == undefined) {
+            Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
             if (res.status == 200) {
                 setProductss(res.data.products);
             }
@@ -39,6 +49,10 @@ const Index = () => {
                 
             }
         })
+        }
+    }
+    useEffect(() => {
+        load()
     }, [])
     
     return (
