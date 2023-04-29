@@ -319,7 +319,7 @@ const Products = ({productss}) => {
                             <div className="tab_content">
                                 <div id="tab1" className="tabs_item">
                                     <div className="row">
-                                        {productss.map((data, idx) => (
+                                        {productss?.map((data, idx) => (
                                             <div className="col-lg-3 col-sm-6 col-6" key={idx}>
                                                 <div className="single-product-box">
                                                     <div className="product-image">

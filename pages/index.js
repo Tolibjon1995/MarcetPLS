@@ -19,6 +19,7 @@ import Footer from '../components/Layout/Footer';
 import AddsModal from '../components/Modal/AddsModal';
 import Axios from 'axios';
 import { useRouter } from 'next/router';
+import base from '../api/base';
 
 const Index = () => {
     const router = useRouter()
@@ -32,35 +33,59 @@ const Index = () => {
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
 
 
-    const load = () => {
-
-
-    }
 
     useEffect(() => {
-        
-        if (telegramcode) {
-            load()
-        }else{
-            load2()
-        }
-        
+        const myTimeout = setTimeout(myGreeting, 3000);
+        return () => clearTimeout(myTimeout)
     }, [telegramcode])
-    const load2 = () => {
-        Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
-            if (res.status == 200) {
-                setProductss(res.data.products);
-            }
-        })
-        Axios.get(`https://api.mareew.uz/shared/brand/`).then((res) => {
-            if (res.status == 200) {
-                setBrend(res.data.brands);
 
-            }
-        })
 
+
+
+    function myGreeting() {
+        if (telegramcode) {
+            setProductss([])
+            setBrend([]);
+            Axios.post(`https://api.mareew.uz/shared/auth/login`, {
+                "name": telegramcode
+            }).then((res) => {
+                console.log(res);
+                localStorage.setItem("access", res.data.token, { path: "/" })
+                if (res.status == 200) {
+                    base.get(`/customer/product/`).then((res) => {
+                        if (res.status == 200) {
+                            setProductss(res.data.products);
+                        }
+                    })
+                    base.get(`/customer/brand/`).then((res) => {
+                        if (res.status == 200) {
+                            setBrend(res.data.brands);
+                        }
+                    })
+                }
+
+            })
+
+        } else {
+            Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
+                if (res.status == 200) {
+                    setProductss(res.data.products);
+                }
+            })
+            Axios.get(`https://api.mareew.uz/shared/brand/`).then((res) => {
+                if (res.status == 200) {
+                    setBrend(res.data.brands);
+                }
+            })
+        }
     }
-    
+
+
+
+
+
+
+
 
     return (
         <React.Fragment>
