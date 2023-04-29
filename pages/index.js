@@ -23,22 +23,31 @@ import { useRouter } from 'next/router';
 const Index = () => {
     const router = useRouter()
     const { telegramcode } = router?.query
-    console.log(telegramcode);
 
 
     const [productss, setProductss] = useState([])
     const [brend, setBrend] = useState([])
     const products = useSelector((state) => state.products)
     const products2 = useSelector((state) => state.products2)
-    console.log(products2);
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
 
-    const load = ()=>{
-        if (telegramcode != '') {
+
+    const load = () => {
+
+
+    }
+
+    useEffect(() => {
         
+        if (telegramcode) {
+            load()
+        }else{
+            load2()
         }
-        if (telegramcode == undefined) {
-            Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
+        
+    }, [telegramcode])
+    const load2 = () => {
+        Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
             if (res.status == 200) {
                 setProductss(res.data.products);
             }
@@ -46,15 +55,13 @@ const Index = () => {
         Axios.get(`https://api.mareew.uz/shared/brand/`).then((res) => {
             if (res.status == 200) {
                 setBrend(res.data.brands);
-                
+
             }
         })
-        }
+
     }
-    useEffect(() => {
-        load()
-    }, [])
     
+
     return (
         <React.Fragment>
             <Navbar />
@@ -64,13 +71,13 @@ const Index = () => {
             <CategoryProducts />
             {
                 brend?.map((item, index) => {
-                    
+
                     return (
                         <>
-                            <ProductOffer 
-                            bgImg={item} 
-                            
-                            left={index % 2 === 0 ? true : false } />
+                            <ProductOffer
+                                bgImg={item}
+
+                                left={index % 2 === 0 ? true : false} />
                             <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
                         </>
                     )

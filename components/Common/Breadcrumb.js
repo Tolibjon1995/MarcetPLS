@@ -9,7 +9,7 @@ class Breadcrumb extends Component {
                     <ul>
                         <li>
                             <Link href="/">
-                                <a>Home</a>
+                                <a>Bosh sahifa</a>
                             </Link>
                         </li>
                         <li>{this.props.title}</li>

@@ -16,6 +16,7 @@ const Layout = ({ children }) => {
                 <link rel="canonical" href="../../images/logo.png"></link>
                 <link rel="icon" type="image/png" href="../../images/logo.png"></link>
                 <meta property="og:image" content="../../images/logo.png" />
+                <script src="https://telegram.org/js/telegram-web-app.js"></script>
                 
                 {/* https://res.cloudinary.com/dev-empty/image/upload/v1590076309/ppuymfucr4jubqvhqaqt.jpg */}
                 {/* https://novine-react.envytheme.com/ */}

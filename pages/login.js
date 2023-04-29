@@ -19,7 +19,7 @@ const Login = () => {
             const response = await auth.signInWithEmailAndPassword(userInfo);
             const username = response.user.firstName + " " + response.user.lastName;
             toast.success(`${username} has been successfully logged in.`);
-        } catch(err) {
+        } catch (err) {
             toast.error(err.data.error)
         }
     }
@@ -34,55 +34,28 @@ const Login = () => {
     return (
         <React.Fragment>
             <Navbar />
-            <Breadcrumb title="Login" />
+            <Breadcrumb title="Kirish" />
             <section className="login-area ptb-60">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-md-12">
                             <div className="login-content">
-                                <div className="section-title">
-                                    <h2><span className="dot"></span> Login</h2>
-                                </div>
+                                
 
-                                <form className="login-form" onSubmit={onSubmit}>
-                                    <div className="form-group">
-                                        <label>Email</label>
-                                        <input type="email" className="form-control" placeholder="Enter your email" id="email" name="email" value={userInfo.email} onChange={onChange} />
-                                    </div>
-
-                                    <div className="form-group">
-                                        <label>Password</label>
-                                        <input type="password" className="form-control" placeholder="Enter your password" id="password" name="password" value={userInfo.password} onChange={onChange} />
-                                    </div>
-
-                                    <button type="submit" className="btn btn-primary">Login</button>
-                                    
-                                    <Link href="/forgot-password">
-                                        <a className="forgot-password">Forgot password?</a>
-                                    </Link>
-
-                                    <SocialButtons />
-                                </form>
+                            <a href='https://t.me/mareewbot/?start' target='_blank' className="btn btn-primary w-50 m-auto">Login</a>
                             </div>
                         </div>
 
                         <div className="col-lg-6 col-md-12">
                             <div className="new-customer-content">
-                                <div className="section-title">
-                                    <h2><span className="dot"></span> New Customer</h2>
-                                </div>
-
-                                <span>Create an Account</span>
-                                <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click register.</p>
-                                <Link href="/signup">
-                                    <a className="btn btn-light">Create an Account</a>
-                                </Link>
+                                <h2>Yo'riqnoma</h2>
+                                <p>Mareew do'konida shaxsiy hisobingizni yaratish uchun "Kirish" tugmasini bosib telegram bot orqali ro'yhatdan o'tishingiz kerak.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <Facility />
+            {/* <Facility /> */}
             <Footer />
         </React.Fragment>
     );
