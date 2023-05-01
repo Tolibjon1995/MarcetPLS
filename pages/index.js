@@ -19,6 +19,7 @@ import Footer from '../components/Layout/Footer';
 import AddsModal from '../components/Modal/AddsModal';
 import Axios from 'axios';
 import { useRouter } from 'next/router';
+
 import base from '../api/base';
 
 const Index = () => {
@@ -40,7 +41,7 @@ const Index = () => {
 
     useEffect(() => {
         setLoader(true)
-        const myTimeout = setTimeout(myGreeting, 3000);
+        const myTimeout = setTimeout(myGreeting, 2000);
         return () => clearTimeout(myTimeout)
     }, [telegramcode])
 
@@ -99,8 +100,9 @@ const Index = () => {
             })
             Axios.get(`https://api.mareew.uz/shared/category/`).then((res) => {
                 if (res.status == 200) {
-                    setCategory(res.data.categories);
-                    setLoader(false)
+                    console.log(res);
+                    setCategory(res?.data?.categories);
+                    // setLoader(false)
                 }
             })
             Axios.get(`https://api.mareew.uz/shared/brand/`).then((res) => {

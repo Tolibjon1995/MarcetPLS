@@ -17,6 +17,10 @@ const Layout = ({ children }) => {
                 <link rel="icon" type="image/png" href="../../images/logo.png"></link>
                 <meta property="og:image" content="../../images/logo.png" />
                 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+                <link href="https://unpkg.com/jarallax@2.0/dist/jarallax.css" rel="stylesheet" />
+
+                <script src="https://unpkg.com/jarallax@2.0"></script>
+    <script src="https://unpkg.com/jarallax@2.0/dist/jarallax-video.min.js"></script>
                 
                 {/* https://res.cloudinary.com/dev-empty/image/upload/v1590076309/ppuymfucr4jubqvhqaqt.jpg */}
                 {/* https://novine-react.envytheme.com/ */}

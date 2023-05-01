@@ -1538,7 +1538,7 @@ Modal CSS
 Main Banner Area CSS
 =================================================*/
 .main-banner {
-  height: 600px;
+  height: 400px;
   position: relative;
   z-index: 1;
   background-color: #f1f1f1;
@@ -2136,11 +2136,25 @@ All Products Area CSS
   display: block;
 }
 
+.jarallax {
+  position: relative;
+  z-index: 0;
+}
+.jarallax > .jarallax-img {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 .products-category-tab .tabs {
   list-style-type: none;
   margin-bottom: 40px;
   text-align: center;
-  background-color: #fcfbfb;
+  /* background-color: #fcfbfb; */
   padding: 15px;
 }
 
@@ -8832,6 +8846,8 @@ Main Banner Area CSS
   background-attachment: fixed;
   padding-top: 100px;
   padding-bottom: 100px;
+  perspective: 10px;
+  transform-style: preserve-3d;
 }
 
 .offer-area-two.offer-bg-image {
@@ -8839,6 +8855,7 @@ Main Banner Area CSS
   /* background-image: url(../../../images/gsap.jpg); */
   background-size: 40% 50%;
   background-position: left;
+  transform: translateZ(-10px);
 }
 
 .offer-area-two.offer-bg-image2 {
@@ -8846,6 +8863,7 @@ Main Banner Area CSS
   /* background-image: url(../../../images/gsap.jpg); */
   background-size: 40% 50%;
   background-position: right;
+  transform: translateZ(-10px);
 }
 
 .offer-area-two .offer-content-box {
