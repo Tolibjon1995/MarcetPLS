@@ -4,17 +4,9 @@ import Axios from 'axios';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 
-const Banner = () => {
+const Banner = ({popular}) => {
     let baseURL = 'https://api.mareew.uz/'
-    const [popular, setPopular] = useState([])
 
-    useEffect(() => {
-        Axios.get(`https://api.mareew.uz/shared/product/popular`).then(({ status, data: { products } }) => {
-            if (status == 200) {
-                setPopular(products)
-            }
-        })
-    }, [])
 
     return (
 

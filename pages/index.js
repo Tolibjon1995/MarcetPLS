@@ -27,14 +27,19 @@ const Index = () => {
 
 
     const [productss, setProductss] = useState([])
+    const [category, setCategory] = useState([])
     const [brend, setBrend] = useState([])
     const products = useSelector((state) => state.products)
     const products2 = useSelector((state) => state.products2)
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
+    const [popular, setPopular] = useState([])
+    const [loader, setLoader] = useState(false)
+
 
 
 
     useEffect(() => {
+        setLoader(true)
         const myTimeout = setTimeout(myGreeting, 3000);
         return () => clearTimeout(myTimeout)
     }, [telegramcode])
@@ -49,17 +54,30 @@ const Index = () => {
             Axios.post(`https://api.mareew.uz/shared/auth/login`, {
                 "name": telegramcode
             }).then((res) => {
-                console.log(res);
                 localStorage.setItem("access", res.data.token, { path: "/" })
                 if (res.status == 200) {
+                    base.get(`/customer/product/popular`).then(({ status, data: { products } }) => {
+                        if (status == 200) {
+                            setPopular(products)
+                            setLoader(false)
+                        }
+                    })
                     base.get(`/customer/product/`).then((res) => {
                         if (res.status == 200) {
                             setProductss(res.data.products);
+                            setLoader(false)
+                        }
+                    })
+                    base.get(`/customer/category/`).then((res) => {
+                        if (res.status == 200) {
+                            setCategory(res.data.categories);
+                            setLoader(false)
                         }
                     })
                     base.get(`/customer/brand/`).then((res) => {
                         if (res.status == 200) {
                             setBrend(res.data.brands);
+                            setLoader(false)
                         }
                     })
                 }
@@ -67,14 +85,28 @@ const Index = () => {
             })
 
         } else {
+            Axios.get(`https://api.mareew.uz/shared/product/popular`).then(({ status, data: { products } }) => {
+                if (status == 200) {
+                    setPopular(products)
+                    setLoader(false)
+                }
+            })
             Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
                 if (res.status == 200) {
                     setProductss(res.data.products);
+                    setLoader(false)
+                }
+            })
+            Axios.get(`https://api.mareew.uz/shared/category/`).then((res) => {
+                if (res.status == 200) {
+                    setCategory(res.data.categories);
+                    setLoader(false)
                 }
             })
             Axios.get(`https://api.mareew.uz/shared/brand/`).then((res) => {
                 if (res.status == 200) {
                     setBrend(res.data.brands);
+                    setLoader(false)
                 }
             })
         }
@@ -89,41 +121,55 @@ const Index = () => {
 
     return (
         <React.Fragment>
-            <Navbar />
-            <Banner />
-            {/* <OfferArea /> */}
-            <Products productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
-            <CategoryProducts />
             {
-                brend?.map((item, index) => {
+                loader ?
+                    <div className="bg-loader">
+                        <span className="loader">
+                            <span className="loader-inner"></span>
+                        </span>
+                    </div>
+                    :
+                    <>
+                        <Navbar />
+                        <Banner popular={popular} />
+                        {/* <OfferArea /> */}
+                        <Products productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+                        <CategoryProducts category={category} />
+                        {
+                            brend?.map((item, index) => {
 
-                    return (
-                        <>
-                            <ProductOffer
-                                bgImg={item}
+                                return (
+                                    <>
+                                        <ProductOffer
+                                            bgImg={item}
 
-                                left={index % 2 === 0 ? true : false} />
-                            <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
-                        </>
-                    )
-                })
+                                            left={index % 2 === 0 ? true : false} />
+                                        <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+                                    </>
+                                )
+                            })
+                        }
+
+                        <Partner />
+                        <InstagramPhoto />
+                        <Footer />
+                        {/* <AddsModal /> */}
+                    </>
             }
-            {/* <ProductOffer  left={true} />
-            <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
-            <ProductOffer left={false} />
-            <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} /> */}
-            {/* <TrendingProducts products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
-            <BestSeller products={products.slice(8, 12)} CompareProducts={addedItemsToCompare} />
-            <Facility />
-            <Testimonials />
-            <News />
-            <Subscribe /> */}
-            <Partner />
-            <InstagramPhoto />
-            <Footer />
-            {/* <AddsModal /> */}
+
+
         </React.Fragment>
     );
 }
 
 export default Index;
+{/* <ProductOffer  left={true} />
+            <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <ProductOffer left={false} />
+            <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} /> */}
+{/* <TrendingProducts products={products.slice(0, 8)} CompareProducts={addedItemsToCompare} />
+            <BestSeller products={products.slice(8, 12)} CompareProducts={addedItemsToCompare} />
+            <Facility />
+            <Testimonials />
+            <News />
+            <Subscribe /> */}
