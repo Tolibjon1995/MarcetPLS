@@ -8847,23 +8847,22 @@ Main Banner Area CSS
   padding-top: 100px;
   padding-bottom: 100px;
   perspective: 10px;
-  transform-style: preserve-3d;
+  /* transform-style: preserve-3d; */
 }
+
 
 .offer-area-two.offer-bg-image {
   background-color: #000000;
   /* background-image: url(../../../images/gsap.jpg); */
-  background-size: 40% 50%;
-  background-position: left;
-  transform: translateZ(-10px);
+  background-size: 30% 50%;
+  background-position: 15% 0;
 }
 
 .offer-area-two.offer-bg-image2 {
   background-color: #000000;
   /* background-image: url(../../../images/gsap.jpg); */
-  background-size: 40% 50%;
-  background-position: right;
-  transform: translateZ(-10px);
+  background-size: 30% 50%;
+  background-position: 85% 0;
 }
 
 .offer-area-two .offer-content-box {

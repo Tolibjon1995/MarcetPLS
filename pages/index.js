@@ -21,6 +21,7 @@ import Axios from 'axios';
 import { useRouter } from 'next/router';
 
 import base from '../api/base';
+import TestPage from '../components/shop-style-one/TestPage';
 
 const Index = () => {
     const router = useRouter()
@@ -137,6 +138,7 @@ const Index = () => {
                         {/* <OfferArea /> */}
                         <Products productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
                         <CategoryProducts category={category} />
+                        <TestPage bgImg={brend[1]} />
                         {
                             brend?.map((item, index) => {
 

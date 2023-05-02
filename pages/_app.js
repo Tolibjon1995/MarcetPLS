@@ -9,6 +9,7 @@ import 'react-image-lightbox/style.css';
 import '../public/assets/styles/style.css';
 import '../public/assets/styles/responsive.css';
 import '../public/assets/styles/imageAnimate.css';
+import '../public/assets/styles/testpage.css'
 
 import "swiper/css";
 import "swiper/css/free-mode";
