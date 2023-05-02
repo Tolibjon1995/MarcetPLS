@@ -614,6 +614,26 @@ Top Header Area CSS
 /*================================================
 Navbar Area CSS
 =================================================*/
+.blog_inp {
+  width: 60%;
+  height: 35px;
+  background: #D9D9D9;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.search_inp {
+  border: none;
+  background-color: transparent !important;
+  width: 95%;
+  outline: none;
+  padding: 0 20px;
+}
+.icon_inp{
+  cursor: pointer;
+}
 .navbar-area .is-sticky {
   position: fixed;
   top: 0;
@@ -2140,7 +2160,8 @@ All Products Area CSS
   position: relative;
   z-index: 0;
 }
-.jarallax > .jarallax-img {
+
+.jarallax>.jarallax-img {
   position: absolute;
   object-fit: cover;
   top: 0;
@@ -8855,14 +8876,14 @@ Main Banner Area CSS
   background-color: #000000;
   /* background-image: url(../../../images/gsap.jpg); */
   background-size: 30% 50%;
-  background-position: 15% 0;
+  background-position: 15% 50%;
 }
 
 .offer-area-two.offer-bg-image2 {
   background-color: #000000;
   /* background-image: url(../../../images/gsap.jpg); */
   background-size: 30% 50%;
-  background-position: 85% 0;
+  background-position: 85% 50%;
 }
 
 .offer-area-two .offer-content-box {
@@ -9933,6 +9954,10 @@ Pagination CSS
 }
 
 @media (max-width: 576px) {
+  .blog_inp {
+    width: 100%;
+    margin-top: 20px;
+  }
   .produckt-img {
     height: 180px;
   }

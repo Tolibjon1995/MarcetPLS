@@ -12,7 +12,7 @@ class MegaMenu extends Component {
     };
 
     handleCart = () => {
-        this.setState( prevState => {
+        this.setState(prevState => {
             return {
                 display: !prevState.display
             };
@@ -20,7 +20,7 @@ class MegaMenu extends Component {
     }
 
     handleSearchForm = () => {
-        this.setState( prevState => {
+        this.setState(prevState => {
             return {
                 searchForm: !prevState.searchForm
             };
@@ -53,30 +53,37 @@ class MegaMenu extends Component {
         let { products } = this.props;
         return (
             <React.Fragment>
-            <div className="navbar-area">
-                <div id="navbar" className="comero-nav">
-                    <div className="container">
-                        <nav className="navbar navbar-expand-md navbar-light">
-                            <Link href="/">
-                                <a className="navbar-brand">
-                                    <img src={require("../../images/logo.png")} alt="logo" width="150" height="30" />
-                                </a>
-                            </Link>
+                <div className="navbar-area">
+                    <div id="navbar" className="comero-nav">
+                        <div className="container">
+                            <nav className="navbar navbar-expand-md navbar-light">
+                                <Link href="/">
+                                    <a className="navbar-brand">
+                                        <img src={require("../../images/logo.png")} alt="logo" width="150" height="30" />
+                                    </a>
+                                </Link>
 
-                            <button 
-                                onClick={this.toggleNavbar} 
-                                className={classTwo}
-                                type="button" 
-                                data-toggle="collapse" 
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                                aria-expanded="false" 
-                                aria-label="Toggle navigation"
-                            >
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
+                                <button
+                                    onClick={this.toggleNavbar}
+                                    className={classTwo}
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation"
+                                >
+                                    <span className="navbar-toggler-icon"></span>
+                                </button>
 
-                            <div className={classOne} id="navbarSupportedContent">
-                            <ul className="navbar-nav">
+                                <div className={`ml-md-5 d-md-flex justify-content-between  ${classOne}`} id="navbarSupportedContent">
+
+                                    <label htmlFor="search" className="blog_inp">
+                                        <input type="text" placeholder='Qidiruv...' id='search' className="search_inp" />
+                                        <div className="icon_inp">
+                                            <i className="fas fa-search"></i>
+                                        </div>
+                                    </label>
+                                    {/* <ul className="navbar-nav">
                                 <li className="nav-item p-relative">
                                     <Link href="#turkumlar">
                                         <a className="nav-link active">
@@ -105,8 +112,8 @@ class MegaMenu extends Component {
                                         </a>
                                     </Link>
                                 </li>
-                            </ul>
-                                {/* <ul className="navbar-nav">
+                            </ul> */}
+                                    {/* <ul className="navbar-nav">
                                   <li className="nav-item p-relative">
                                         <Link href="#">
                                             <a className="nav-link active">
@@ -1113,8 +1120,8 @@ class MegaMenu extends Component {
                                     </li>
                                 </ul> */}
 
-                                <div className="others-option">
-                                    <div className="option-item">
+                                    <div className="others-option">
+                                        {/* <div className="option-item">
                                         <i 
                                             onClick={this.handleSearchForm} 
                                             className="search-btn fas fa-search"
@@ -1143,41 +1150,41 @@ class MegaMenu extends Component {
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
-                                    <div className="option-item">
-                                        <Link href="/login">
-                                            <a>Kirish</a>
-                                        </Link>
-                                    </div>
+                                        <div className="option-item">
+                                            <Link href="/login">
+                                                <a>Kirish</a>
+                                            </Link>
+                                        </div>
 
-                                    <div className="option-item">
-                                        <Link href="#">
-                                            <a
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    this.handleCart()
-                                                }}
-                                            >
-                                                Savat({products.length}) <i className="fas fa-shopping-bag"></i>
-                                            </a>
-                                        </Link>
-                                    </div>
+                                        <div className="option-item">
+                                            <Link href="#">
+                                                <a
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        this.handleCart()
+                                                    }}
+                                                >
+                                                    Savat({products.length}) <i className="fas fa-shopping-bag"></i>
+                                                </a>
+                                            </Link>
+                                        </div>
 
+                                    </div>
                                 </div>
-                            </div>
-                        </nav>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {this.state.display ? <Cart onClick={this.handleCart} /> : ''}
+                {this.state.display ? <Cart onClick={this.handleCart} /> : ''}
             </React.Fragment>
         );
     }
 }
 
-const mapStateToProps = (state)=>{
-    return{
+const mapStateToProps = (state) => {
+    return {
         products: state.addedItems
     }
 }
