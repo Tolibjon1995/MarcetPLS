@@ -10,7 +10,7 @@ const Banner = ({popular}) => {
 
     return (
 
-        <div className='container'>
+        <div className=''>
             <Swiper
                 // slidesPerView={1}
                 loop={true}

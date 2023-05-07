@@ -1558,7 +1558,7 @@ Modal CSS
 Main Banner Area CSS
 =================================================*/
 .main-banner {
-  height: 400px;
+  height: 600px;
   position: relative;
   z-index: 1;
   background-color: #f1f1f1;
@@ -8874,7 +8874,7 @@ Main Banner Area CSS
 
 .offer-area-two.offer-bg-image {
   background-color: #000000;
-  /* background-image: url(../../../images/gsap.jpg); */
+  /* background-image: url(../../../images/bgfoto.jpg); */
   background-size: 30% 50%;
   background-position: 15% 50%;
 }
