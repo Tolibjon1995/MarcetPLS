@@ -65,6 +65,22 @@ body {
   font-size: 14px;
 }
 
+.navbar_text_color {
+  color: #ff0000 !important;
+}
+
+.navbar_border_color {
+  border: 2px solid #ff0000 !important;
+}
+
+.product_detail tr:nth-child(odd){
+ background-color: #F3F3F3 !important;
+}
+.product_detail tr td{
+  border: none;
+}
+
+
 p {
   color: #666666;
   line-height: 1.8;
@@ -229,7 +245,14 @@ img {
   background-color: #222222;
   border-color: #222222;
 }
-
+.btn-primary2 {
+  color: #000000;
+  background: #D9D9D9;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 34px;
+  text-align: center;
+}
 .btn-primary.disabled,
 .btn-primary:disabled {
   color: #ffffff;
@@ -617,11 +640,10 @@ Navbar Area CSS
 .blog_inp {
   width: 60%;
   height: 35px;
-  background: #D9D9D9;
   border-radius: 15px;
   display: flex;
   align-items: center;
-  
+  padding-left: 10px;
 }
 
 .search_inp {
@@ -631,9 +653,11 @@ Navbar Area CSS
   outline: none;
   padding: 0 20px;
 }
-.icon_inp{
+
+.icon_inp {
   cursor: pointer;
 }
+
 .navbar-area .is-sticky {
   position: fixed;
   top: 0;
@@ -2601,8 +2625,10 @@ Products QuickView Modal Area CSS
 }
 
 .productQuickView .modal-content .product-content .product-info li {
-  font-size: 16px;
-  color: #222222;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 34px;
+  color: #000000;
   margin-bottom: 8px;
 }
 
@@ -5827,8 +5853,10 @@ Products Details Area CSS
 }
 
 .product-details-content h3 {
-  font-size: 22px;
-  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 40px;
+  color: #000000;
 }
 
 .product-details-content h3 a {
@@ -5840,18 +5868,20 @@ Products Details Area CSS
 }
 
 .product-details-content p {
-  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 34px;
+  color: #000000;
 }
 
 .product-details-content .price {
-  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 40px;
+  color: #000000;
+  margin-bottom: 18px;
 }
 
-.product-details-content .price span {
-  display: inline-block;
-  font-size: 18px;
-  color: #222222;
-}
 
 .product-details-content .product-review {
   margin-bottom: 12px;
@@ -5882,8 +5912,10 @@ Products Details Area CSS
 }
 
 .product-details-content .product-info li {
-  font-size: 16px;
-  color: #222222;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 34px;
+  color: #000000;
   margin-bottom: 8px;
 }
 
@@ -5892,12 +5924,14 @@ Products Details Area CSS
 }
 
 .product-details-content .product-info li span {
-  color: #666666;
+  /* color: #666666; */
+  margin-right: 15px;
 }
 
 .product-details-content .product-info li a {
   display: inline-block;
   font-weight: 500;
+  font-size: 28px;
   color: #222222;
 }
 
@@ -5922,8 +5956,10 @@ Products Details Area CSS
 }
 
 .product-details-content .product-color-switch h4 {
-  font-size: 16px;
-  color: #666666;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 34px;
   margin-bottom: 6px;
 }
 
@@ -8865,8 +8901,8 @@ Main Banner Area CSS
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   perspective: 10px;
   /* transform-style: preserve-3d; */
 }
@@ -8875,14 +8911,15 @@ Main Banner Area CSS
 .offer-area-two.offer-bg-image {
   background-color: #000000;
   /* background-image: url(../../../images/bgfoto.jpg); */
-  background-size: 30% 50%;
+  background-size: 30rem;
   background-position: 15% 50%;
+  /* transform: translateZ(-100px); */
 }
 
 .offer-area-two.offer-bg-image2 {
   background-color: #000000;
   /* background-image: url(../../../images/gsap.jpg); */
-  background-size: 30% 50%;
+  background-size: 30rem;
   background-position: 85% 50%;
 }
 
@@ -9954,10 +9991,27 @@ Pagination CSS
 }
 
 @media (max-width: 576px) {
+  .offer-area-two.offer-bg-image {
+    background-size: 10rem;
+  }
+
+  .offer-area-two.offer-bg-image2 {
+    background-size: 10rem;
+  }
+
+  .offer-area-two .offer-content-box h2 {
+    font-size: 32px;
+  }
+
+  .offer-area-two .offer-content-box p {
+    font-size: 12px;
+  }
+
   .blog_inp {
     width: 100%;
     margin-top: 20px;
   }
+
   .produckt-img {
     height: 180px;
   }

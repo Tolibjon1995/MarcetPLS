@@ -138,7 +138,7 @@ const Index = () => {
                         {/* <OfferArea /> */}
                         <Products productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
                         <CategoryProducts category={category} />
-                        <TestPage bgImg={brend[1]} />
+                        {/* <TestPage bgImg={brend[1]} /> */}
                         {
                             brend?.map((item, index) => {
 

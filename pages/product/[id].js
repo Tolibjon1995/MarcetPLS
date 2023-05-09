@@ -24,6 +24,8 @@ const Product = () => {
     const products = useSelector((state) => state.products)
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
 
+    
+
 
     useEffect(() => {
         
@@ -39,6 +41,8 @@ const Product = () => {
             })
         }
     }, [id])
+
+
     return (
         <React.Fragment>
             <Navbar />
@@ -49,7 +53,7 @@ const Product = () => {
                     <div className="row">
                         <ProductImage producti={producti} />
                         <ProductContent producti={producti} />
-                        <DetailsTab />
+                        <DetailsTab producti={producti}/>
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
@@ -74,13 +74,13 @@ const ProductContent = ({ producti }) => {
         setSizeGuide({ shipModal: false });
     }
 
-
+ 
 
 
 
     return (
         <>
-            <div className="col-lg-6 col-md-6 md-mt-100">
+            <div className="col-lg-6 col-md-6 md-mt-100 pb-5">
                 <div className="product-details-content">
                     <h3>{producti?.name}</h3>
 
@@ -89,28 +89,28 @@ const ProductContent = ({ producti }) => {
                     </div>
 
                     <div className="product-review">
-                        <div className="rating">
+                        {/* <div className="rating">
                             <i className="fas fa-star"></i>
                             <i className="fas fa-star"></i>
                             <i className="fas fa-star"></i>
                             <i className="fas fa-star"></i>
                             <i className="fas fa-star-half-alt"></i>
-                        </div>
-                        <Link href="#">
+                        </div> */}
+                        {/* <Link href="#">
                             <a className="rating-count">3 reviews</a>
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <p>{producti?.description}</p>
 
                     <ul className="product-info">
-                        <li><span>Vendor:</span> <Link href="#"><a>Lereve</a></Link></li>
-                        <li><span>Availability:</span> <Link href="#"><a>In stock (7 items)</a></Link></li>
-                        <li><span>Product Type:</span> <Link href="#"><a>T-Shirt</a></Link></li>
+                        <li><span>Brend:</span> <Link href="#"><a>{producti?.brand?.name}</a></Link></li>
+                        <li><span>Turi:</span> <Link href="#"><a>{producti?.category?.name == true ? 'Yangi' : "Yaxshi"}</a></Link></li>
+                        <li><span>Xolati:</span> <Link href="#"><a>{producti?.status_new == true ? 'Yangi' : "Yaxshi"}</a></Link></li>
                     </ul>
 
-                    <div className="product-color-switch">
-                        <h4>Color:</h4>
+                    <div className="product-color-switch mb-3">
+                        <h4>Rangi:</h4>
 
                         <ul>
                             {
@@ -118,7 +118,7 @@ const ProductContent = ({ producti }) => {
                                     return (
                                         <li key={index}>
                                             <Link href="#">
-                                                <a title="Black" style={{background: item}} className=""></a>
+                                                <a title="Black" style={{ background: item }} className=""></a>
                                             </Link>
                                         </li>
                                     )
@@ -160,7 +160,7 @@ const ProductContent = ({ producti }) => {
                         </ul>
                     </div> */}
 
-                    <div className="product-info-btn">
+                    {/* <div className="product-info-btn">
                         <Link href="#">
                             <a
                                 onClick={e => {
@@ -182,9 +182,9 @@ const ProductContent = ({ producti }) => {
                             </a>
                         </Link>
 
-                    </div>
+                    </div> */}
 
-                    <div className="product-add-to-cart">
+                    <div className="product-add-to-cart d-flex">
                         <div className="input-counter">
                             <span
                                 className="minus-btn"
@@ -207,28 +207,35 @@ const ProductContent = ({ producti }) => {
                             </span>
                         </div>
 
-                        <button
+                        {/* <button
                             type="submit"
                             className="btn btn-primary"
                             onClick={handleAddToCartFromView}
                         >
                             <i className="fas fa-cart-plus"></i> Add to Cart
-                        </button>
+                        </button> */}
+                        <div className="product-color-switch">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <svg width="20" height="22" viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 10L8.07843 2H32.3922L38.4706 10M2 10V38C2 39.0609 2.42694 40.0783 3.18689 40.8284C3.94684 41.5786 4.97755 42 6.05229 42H34.4183C35.493 42 36.5237 41.5786 37.2837 40.8284C38.0437 40.0783 38.4706 39.0609 38.4706 38V10M2 10H38.4706M28.3399 18C28.3399 20.1217 27.486 22.1566 25.9661 23.6569C24.4462 25.1571 22.3848 26 20.2353 26C18.0858 26 16.0244 25.1571 14.5045 23.6569C12.9846 22.1566 12.1307 20.1217 12.1307 18" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg width="25" height="22" viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M44.3244 5.53629C43.2038 4.41518 41.8734 3.52584 40.409 2.91907C38.9446 2.3123 37.375 2 35.7899 2C34.2048 2 32.6352 2.3123 31.1708 2.91907C29.7064 3.52584 28.376 4.41518 27.2554 5.53629L24.9298 7.86189L22.6042 5.53629C20.3407 3.27279 17.2707 2.00117 14.0696 2.00117C10.8686 2.00117 7.79861 3.27279 5.53512 5.53629C3.27162 7.79979 2 10.8697 2 14.0708C2 17.2719 3.27162 20.3418 5.53512 22.6053L7.86072 24.9309L24.9298 42L41.9988 24.9309L44.3244 22.6053C45.4455 21.4848 46.3349 20.1543 46.9416 18.6899C47.5484 17.2255 47.8607 15.6559 47.8607 14.0708C47.8607 12.4857 47.5484 10.9161 46.9416 9.45174C46.3349 7.98736 45.4455 6.65687 44.3244 5.53629Z" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
-                    <div className="wishlist-compare-btn">
-                        <Link href="#">
-                            <a className="btn btn-light">
-                                <i className="far fa-heart"></i> Add to Wishlist
-                            </a>
-                        </Link>
 
-                        <Link href="#">
-                            <a className="btn btn-light">
-                                <i className="fas fa-balance-scale"></i> Add to Compare
-                            </a>
-                        </Link>
-                    </div>
 
                     <div className="buy-checkbox-btn">
                         <div className="item">
@@ -239,70 +246,29 @@ const ProductContent = ({ producti }) => {
                                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                     </svg>
                                 </span>
-                                <span>I agree with the terms and conditions</span>
+                                <span>Sotib olish shart va majburiyatlariga roziman</span>
                             </label>
                         </div>
 
                         <div className="item">
                             <Link href="#">
-                                <a className="btn btn-primary">Buy it now!</a>
+                                <a className="btn btn-primary2">Naqd To’lov</a>
+                            </Link>
+                        </div>
+                        <div className="item">
+                            <Link href="#">
+                                <a className="btn btn-primary2">Muddatli To’lov</a>
                             </Link>
                         </div>
                     </div>
 
-                    <div className="custom-payment-options">
-                        <span>Guaranteed safe checkout:</span>
-
-                        <div className="payment-methods">
-                            <Link href="#">
-                                <a>
-                                    <img src={require("../../images/payment-image/1.svg")} alt="image" />
-                                </a>
-                            </Link>
-
-                            <Link href="#">
-                                <a>
-                                    <img src={require("../../images/payment-image/2.svg")} alt="image" />
-                                </a>
-                            </Link>
-
-                            <Link href="#">
-                                <a>
-                                    <img src={require("../../images/payment-image/3.svg")} alt="image" />
-                                </a>
-                            </Link>
-
-                            <Link href="#">
-                                <a>
-                                    <img src={require("../../images/payment-image/4.svg")} alt="image" />
-                                </a>
-                            </Link>
-
-                            <Link href="#">
-                                <a>
-                                    <img src={require("../../images/payment-image/5.svg")} alt="image" />
-                                </a>
-                            </Link>
-
-                            <Link href="#">
-                                <a>
-                                    <img src={require("../../images/payment-image/6.svg")} alt="image" />
-                                </a>
-                            </Link>
-
-                            <Link href="#">
-                                <a>
-                                    <img src={require("../../images/payment-image/7.svg")} alt="image" />
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
+                        
                 </div>
             </div>
-            {sizeGuide ? <SizeGuide
+            {/* {sizeGuide ? <SizeGuide
                 closeSizeGuide={closeSizeGuide}
             /> : ''}
-            {shipModal ? <Shipping closeShipModal={closeShipModal} /> : ''}
+            {shipModal ? <Shipping closeShipModal={closeShipModal} /> : ''} */}
         </>
     )
 }

@@ -65,7 +65,7 @@ const ProductImage = ({ producti }) => {
                             {
                                 producti?.images?.map((item, index) => {
                                     return (
-                                        <SwiperSlide style={{ width: '450px', height: '358px' }} key={index}>
+                                        <SwiperSlide style={{ width: '450px', height: '500px' }} key={index}>
                                             <div className="item w-100 h-100">
                                                 <img className='w-100 h-100' style={{objectFit: 'contain'}} src={baseURL + item} alt="image" />
                                             </div>

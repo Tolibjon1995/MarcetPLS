@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+
 const ProductOffer = ({ left, bgImg }) => {
     let baseURL = 'https://api.mareew.uz/'
     // {`col-lg-5 col-md-6 ${left ? 'offset-lg-7 offset-md-6' : 'offset-lg-0 offset-md-0'} `}
@@ -16,7 +17,7 @@ const ProductOffer = ({ left, bgImg }) => {
                     {/* <div className={`col-12 col-md-6 bg1`}>
                         <img  className='jarallax' src={baseURL + bgImg?.background_image} alt="" />
                     </div> */}
-                    <div className={`col-lg-5 col-md-6 ${left ? 'offset-lg-7 offset-md-6' : 'offset-lg-0 offset-md-0'} `}>
+                    <div className={`col-6 col-lg-5 col-md-6 ${left ? 'offset-6 offset-lg-7 offset-md-6' : 'offset-lg-0 offset-md-0'} `}>
                         <div className="offer-content-box">
                             <span className="sub-title">Yil brendi</span>
                             <h2>{bgImg?.name}</h2>

@@ -5,9 +5,9 @@ import { ToastContainer, Slide } from 'react-toastify';
 import ReactTooltip from 'react-tooltip'
 
 const Layout = ({ children }) => {
-    return(
+    return (
         <React.Fragment>
-            <ReactTooltip  />
+            <ReactTooltip />
             <Head>
                 <title>Mareew</title>
                 <meta name="description" content="O'zbekistondagi birinchi raqamli internet do'kon" />
@@ -17,15 +17,13 @@ const Layout = ({ children }) => {
                 <link rel="icon" type="image/png" href="../../images/logo.png"></link>
                 <meta property="og:image" content="../../images/logo.png" />
                 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-                <link href="https://unpkg.com/jarallax@2.0/dist/jarallax.css" rel="stylesheet" />
+                <script src="https://unpkg.com/feather-icons"></script>
+                <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
-                <script src="https://unpkg.com/jarallax@2.0"></script>
-    <script src="https://unpkg.com/jarallax@2.0/dist/jarallax-video.min.js"></script>
-                
                 {/* https://res.cloudinary.com/dev-empty/image/upload/v1590076309/ppuymfucr4jubqvhqaqt.jpg */}
                 {/* https://novine-react.envytheme.com/ */}
             </Head>
-            { children }
+            {children}
             <ToastContainer transition={Slide} />
             <GoTop scrollStepInPx="100" delayInMs="10.50" />
         </React.Fragment>

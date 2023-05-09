@@ -13,6 +13,33 @@ const auth = new Auth();
 const Login = () => {
     const [userInfo, setUserInfo] = useState({ email: "", password: "" });
 
+    const register = () => {
+        axios.post(`https://api.mareew.uz/shared/auth/register`, {
+            "first_name": value
+        }).then((res) => {
+            if (res.status == 200) {
+                
+                Swal.fire({
+                    title: 'Telegram bot dan kirish kodini olish uchun o\'tish tugmasini bosing',
+                    icon: 'success',
+                    confirmButtonText: `<a class='nav-link text-white' href='https://t.me/mareewtestbot?start=${res.data.code}'>O\'tish</a>`,
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        <Navigate to={`https://t.me/mareewtestbot?start=${res.data.code}`} />
+                    }
+                })
+            }
+        }).catch((err) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Xatolik',
+                text: 'nimadir xato qaytadan urinib ko\'ring',
+            })
+
+        })
+    }
+
     const onSubmit = async (event) => {
         event.preventDefault();
         try {
