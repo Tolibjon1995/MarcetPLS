@@ -212,7 +212,7 @@ import AddToCart from '../Shared/AddToCart';
 import AddToCompare from '../Shared/AddToCompare';
 import axios from 'axios';
 
-const Products = ({productss}) => {
+const Products = ({ productss }) => {
     let baseURL = 'https://api.mareew.uz/'
     const [modalData, setModalData] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
@@ -279,7 +279,7 @@ const Products = ({productss}) => {
 
     const handleGetProduct = () => {
         axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
-            
+
         })
     }
 
@@ -287,12 +287,12 @@ const Products = ({productss}) => {
     //     axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
     //         if (res.status == 200) {
     //             setProductss(res.data.products);
-                
+
     //         }
 
     //     })
     // }, [])
-
+    let refresh = typeof window !== "undefined" ? window.localStorage.getItem('refresh') : false;
 
     return (
         <section className="all-products-area pb-60">
@@ -323,43 +323,23 @@ const Products = ({productss}) => {
                                             <div className="col-lg-3 col-sm-6 col-6" key={idx}>
                                                 <div className="single-product-box">
                                                     <div className="product-image">
-                                                        <Link href={`/product/${data.id}`} as={`/product/${data.id}`}>
-                                                            <a>
-                                                                <img className='produckt-img' src={baseURL + data.images[0]} alt="image" />
-                                                                {/* <img src={data.imageHover} alt="image" /> */}
-                                                            </a>
-                                                        </Link>
+                                                        {
+                                                            refresh ?
+                                                                <Link href={`/product/${data.id}/?telegramcode${refresh}`} as={`/product/${data.id}`}>
+                                                                    <a>
+                                                                        <img className='produckt-img' src={baseURL + data.images[0]} alt="image" />
+                                                                        {/* <img src={data.imageHover} alt="image" /> */}
+                                                                    </a>
+                                                                </Link>
+                                                                :
+                                                                <Link href={`/product/${data.id}`} as={`/product/${data.id}`}>
+                                                                    <a>
+                                                                        <img className='produckt-img' src={baseURL + data.images[0]} alt="image" />
+                                                                        {/* <img src={data.imageHover} alt="image" /> */}
+                                                                    </a>
+                                                                </Link>
+                                                        }
 
-                                                        {/* <ul>
-                                                                <li>
-                                                                    <Link href="#">
-                                                                        <a 
-                                                                            data-tip="Quick View" 
-                                                                            data-place="left" 
-                                                                            onClick={e => {
-                                                                                    e.preventDefault(); 
-                                                                                    this.openModal();
-                                                                                    this.handleModalData(data)
-                                                                                }
-                                                                            }
-                                                                        >
-                                                                            <i className="far fa-eye"></i>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    <Link href="#">
-                                                                        <a data-tip="Add to Wishlist" data-place="left">
-                                                                            <i className="far fa-heart"></i>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    {
-                                                                        this.compareButton(data.id)
-                                                                    }
-                                                                </li>
-                                                            </ul> */}
                                                     </div>
                                                     <div className='row'>
                                                         <div className='col-10'>
@@ -368,9 +348,17 @@ const Products = ({productss}) => {
                                                                     MAREEW
                                                                 </h4>
                                                                 <h3>
-                                                                    <Link href="/product/[id]" as={`/product/${data.id}`}>
-                                                                        <a>{data.name}</a>
-                                                                    </Link>
+                                                                    {
+                                                                        refresh ?
+                                                                            <Link href={`/product/[id]/?telegramcode${refresh}`} as={`/product/${data.id}/?telegramcode${refresh}`}>
+                                                                                <a>{data.name}</a>
+                                                                            </Link>
+                                                                            :
+                                                                            <Link href="/product/[id]" as={`/product/${data.id}`}>
+                                                                                <a>{data.name}</a>
+                                                                            </Link>
+                                                                    }
+
                                                                 </h3>
 
                                                                 <div className="product-price">

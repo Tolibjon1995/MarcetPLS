@@ -10,6 +10,7 @@ import DetailsTab from '../../components/product-details/DetailsTab';
 import RelatedProducts from '../../components/product-details/RelatedProducts';
 import Facility from '../../components/shop-style-one/Facility';
 import axios from 'axios';
+import base from '../../api/base';
 
 const Product = () => {
     const [producti, setProducti] = useState(null)
@@ -18,51 +19,86 @@ const Product = () => {
     const router = useRouter()
     const { id } = router?.query
 
-    
+
     const product = useSelector((state) => state.products.find(item => item.id === parseInt(id)))
 
     const products = useSelector((state) => state.products)
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
 
-    
 
 
+    let refresh = typeof window !== "undefined" ? window.localStorage.getItem('refresh') : false;
     useEffect(() => {
-        
-        if(id){
-            setLoading(true)
-            axios.get(`https://api.mareew.uz/shared/product/${id}`).then(({status, data: {product}}) => {
+        setLoading(true)
+        if (refresh) {
+
+            if (id) {
                 
-                if (status == 200) {
-                    setProducti(product);
+                base.get(`/customer/product/${id}`).then((res) => {
+                    setProducti(res.data.product);
                     setLoading(false)
-                } else if (status == 400) {
-                }
-            })
+                })
+            }
+        } else {
+            if (id) {
+                setLoading(true)
+                axios.get(`https://api.mareew.uz/shared/product/${id}`).then((res) => {
+                    setProducti(res.data.product);
+                    setLoading(false)
+                })
+            }
         }
+
+
     }, [id])
+    // useEffect(() => {
+
+    //     if(id){
+    //         setLoading(true)
+    //         axios.get(`https://api.mareew.uz/shared/product/${id}`).then(({status, data: {product}}) => {
+
+    //             if (status == 200) {
+    //                 setProducti(product);
+    //                 setLoading(false)
+    //             } else if (status == 400) {
+    //             }
+    //         })
+    //     }
+    // }, [id])
 
 
     return (
         <React.Fragment>
-            <Navbar />
-            <Breadcrumb title="Belted chino trousers polo" />
-
-            <section className="products-details-area pt-60">
-                <div className="container">
-                    <div className="row">
-                        <ProductImage producti={producti} />
-                        <ProductContent producti={producti} />
-                        <DetailsTab producti={producti}/>
+            {
+                loading ?
+                    <div className="bg-loader">
+                        <span className="loader">
+                            <span className="loader-inner"></span>
+                        </span>
                     </div>
-                </div>
+                    :
+                    <>
+                        <Navbar />
+                        <Breadcrumb title="Belted chino trousers polo" />
 
-                <RelatedProducts products={products} CompareProducts={addedItemsToCompare} />
+                        <section className="products-details-area pt-60">
+                            <div className="container">
+                                <div className="row">
+                                    <ProductImage producti={producti} />
+                                    <ProductContent producti={producti} />
+                                    <DetailsTab producti={producti} />
+                                </div>
+                            </div>
 
-                <Facility />
-            </section>
+                            <RelatedProducts products={products} CompareProducts={addedItemsToCompare} />
 
-            <Footer />
+                            <Facility />
+                        </section>
+
+                        <Footer />
+                    </>
+            }
+
         </React.Fragment>
     );
 }

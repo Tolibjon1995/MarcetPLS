@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Cart from '../Modal/Cart';
 
 class MegaMenu extends Component {
+    
+
 
     state = {
         display: false,
@@ -46,12 +48,17 @@ class MegaMenu extends Component {
     }
 
     render() {
+        let baseURL = 'https://api.mareew.uz/'
+
+
         const { collapsed } = this.state;
         const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
         const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
 
-        let { telegramcode } = this.props;
-        console.log(telegramcode);
+        const {user} = this.props
+        let telegramcode = typeof window !== "undefined" ? window.localStorage.getItem('access') : false;
+        
+        
         return (
             <React.Fragment>
                 <div className="py-3"></div>
@@ -125,8 +132,8 @@ class MegaMenu extends Component {
                                             telegramcode ? 
                                             <>
                                             <div className="d-flex align-items-center">
-                                                <img src={require("../../images/Ellipse.png")} alt="" />
-                                                <h3>Ismi</h3>
+                                                <img src={baseURL+user.image} alt="" />
+                                                <h3>{user.first_name != null ? user.first_name : '' + user.last_name != null ? user.last_name : ''}</h3>
                                             </div>
                                             </>
                                                 :

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { useRouter } from 'next/router';
+import base from '../../api/base';
 
 const ProductImage = ({ producti }) => {
     let baseURL = 'https://api.mareew.uz/'
@@ -37,14 +38,8 @@ const ProductImage = ({ producti }) => {
             )
         })
     }
-    useEffect(() => {
-        if (id) {
-            axios.get(`https://api.mareew.uz/shared/product/${id}`).then((res) => {
-                setProduct(res.data.product);
 
-            })
-        }
-    }, [id])
+
 
     return (
         <div className="col-lg-6 col-md-6">
@@ -67,7 +62,7 @@ const ProductImage = ({ producti }) => {
                                     return (
                                         <SwiperSlide style={{ width: '450px', height: '500px' }} key={index}>
                                             <div className="item w-100 h-100">
-                                                <img className='w-100 h-100' style={{objectFit: 'contain'}} src={baseURL + item} alt="image" />
+                                                <img className='w-100 h-100' style={{ objectFit: 'contain' }} src={baseURL + item} alt="image" />
                                             </div>
                                         </SwiperSlide>
                                     )
