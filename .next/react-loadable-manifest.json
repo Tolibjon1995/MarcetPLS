@@ -1,12 +1,36 @@
 {
+  "..\\components\\Common\\InstagramPhoto.js -> react-owl-carousel3": {
+    "id": "..\\components\\Common\\InstagramPhoto.js -> react-owl-carousel3",
+    "files": [
+      "static/chunks/node_modules_react-owl-carousel3_lib_OwlCarousel_js.js"
+    ]
+  },
+  "..\\components\\Common\\News.js -> react-owl-carousel3": {
+    "id": "..\\components\\Common\\News.js -> react-owl-carousel3",
+    "files": [
+      "static/chunks/node_modules_react-owl-carousel3_lib_OwlCarousel_js.js"
+    ]
+  },
+  "..\\components\\Common\\Partner.js -> react-owl-carousel3": {
+    "id": "..\\components\\Common\\Partner.js -> react-owl-carousel3",
+    "files": [
+      "static/chunks/node_modules_react-owl-carousel3_lib_OwlCarousel_js.js"
+    ]
+  },
+  "..\\components\\Common\\Testimonials.js -> react-owl-carousel3": {
+    "id": "..\\components\\Common\\Testimonials.js -> react-owl-carousel3",
+    "files": [
+      "static/chunks/node_modules_react-owl-carousel3_lib_OwlCarousel_js.js"
+    ]
+  },
   "..\\components\\Layout\\TopPanel.js -> react-owl-carousel3": {
     "id": "..\\components\\Layout\\TopPanel.js -> react-owl-carousel3",
     "files": [
       "static/chunks/node_modules_react-owl-carousel3_lib_OwlCarousel_js.js"
     ]
   },
-  "..\\components\\product-details\\RelatedProducts.js -> react-owl-carousel3": {
-    "id": "..\\components\\product-details\\RelatedProducts.js -> react-owl-carousel3",
+  "..\\components\\shop-style-one\\TrendingProductsSlide.js -> react-owl-carousel3": {
+    "id": "..\\components\\shop-style-one\\TrendingProductsSlide.js -> react-owl-carousel3",
     "files": [
       "static/chunks/node_modules_react-owl-carousel3_lib_OwlCarousel_js.js"
     ]

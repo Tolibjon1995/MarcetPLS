@@ -82,8 +82,62 @@ const Index = () => {
                             setLoader(false)
                         }
                     })
+                }else {
+                    Axios.get(`https://api.mareew.uz/shared/product/popular`).then(({ status, data: { products } }) => {
+                        if (status == 200) {
+                            setPopular(products)
+                            setLoader(false)
+                        }
+                    })
+                    Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
+                        if (res.status == 200) {
+                            setProductss(res.data.products);
+                            setLoader(false)
+                        }
+                    })
+                    Axios.get(`https://api.mareew.uz/shared/category/`).then((res) => {
+                        if (res.status == 200) {
+                            console.log(res);
+                            setCategory(res?.data?.categories);
+                            // setLoader(false)
+                        }
+                    })
+                    Axios.get(`https://api.mareew.uz/shared/brand/`).then((res) => {
+                        if (res.status == 200) {
+                            setBrend(res.data.brands);
+                            setLoader(false)
+                        }
+                    })
                 }
 
+            }).catch((err)=>{
+                
+                    Axios.get(`https://api.mareew.uz/shared/product/popular`).then(({ status, data: { products } }) => {
+                        if (status == 200) {
+                            setPopular(products)
+                            setLoader(false)
+                        }
+                    })
+                    Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
+                        if (res.status == 200) {
+                            setProductss(res.data.products);
+                            setLoader(false)
+                        }
+                    })
+                    Axios.get(`https://api.mareew.uz/shared/category/`).then((res) => {
+                        if (res.status == 200) {
+                            console.log(res);
+                            setCategory(res?.data?.categories);
+                            // setLoader(false)
+                        }
+                    })
+                    Axios.get(`https://api.mareew.uz/shared/brand/`).then((res) => {
+                        if (res.status == 200) {
+                            setBrend(res.data.brands);
+                            setLoader(false)
+                        }
+                    })
+                
             })
 
         } else {
@@ -133,7 +187,7 @@ const Index = () => {
                     </div>
                     :
                     <>
-                        <Navbar />
+                        <Navbar telegramcode={telegramcode ? true : false}/>
                         <Banner popular={popular} />
                         {/* <OfferArea /> */}
                         <Products productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />

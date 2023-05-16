@@ -73,10 +73,11 @@ body {
   border: 2px solid #ff0000 !important;
 }
 
-.product_detail tr:nth-child(odd){
- background-color: #F3F3F3 !important;
+.product_detail tr:nth-child(odd) {
+  background-color: #F3F3F3 !important;
 }
-.product_detail tr td{
+
+.product_detail tr td {
   border: none;
 }
 
@@ -245,6 +246,7 @@ img {
   background-color: #222222;
   border-color: #222222;
 }
+
 .btn-primary2 {
   color: #000000;
   background: #D9D9D9;
@@ -253,6 +255,7 @@ img {
   line-height: 34px;
   text-align: center;
 }
+
 .btn-primary.disabled,
 .btn-primary:disabled {
   color: #ffffff;
@@ -1007,6 +1010,8 @@ Navbar Area CSS
   padding-left: 0;
   list-style-type: none;
   margin-bottom: 0;
+  display: flex;
+  align-items: center;
 }
 
 .comero-nav .others-option .option-item {
@@ -1014,6 +1019,18 @@ Navbar Area CSS
   position: relative;
   margin-right: 17px;
   line-height: initial;
+}
+
+.comero-nav .others-option .option-item img {
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50% !important;
+  margin-right: 15px;
+}
+
+.comero-nav .others-option .option-item h3 {
+  font-size: 22px;
+  color: #FF0000;
 }
 
 .comero-nav .others-option .option-item a {
@@ -1050,7 +1067,7 @@ Navbar Area CSS
   right: -9px;
   top: 0.5px;
   width: 1px;
-  height: 12px;
+  height: 0px;
   background: #888888;
 }
 
