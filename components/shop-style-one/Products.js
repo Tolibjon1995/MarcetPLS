@@ -332,7 +332,7 @@ const Products = ({ productss }) => {
                                                                     </a>
                                                                 </Link>
                                                                 :
-                                                                <Link href={`/product/${data.id}/`} as={`/product/${data.id}`}>
+                                                                <Link href={`/product/${data.id}`} as={`/product/${data.id}`}>
                                                                     <a>
                                                                         <img className='produckt-img' src={baseURL + data.images[0]} alt="image" />
                                                                         {/* <img src={data.imageHover} alt="image" /> */}
@@ -354,7 +354,7 @@ const Products = ({ productss }) => {
                                                                                 <a>{data.name}</a>
                                                                             </Link>
                                                                             :
-                                                                            <Link href="/product/[id]/" as={`/product/${data.id}`}>
+                                                                            <Link href="/product/[id]" as={`/product/${data.id}`}>
                                                                                 <a>{data.name}</a>
                                                                             </Link>
                                                                     }
