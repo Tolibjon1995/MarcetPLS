@@ -36,7 +36,7 @@ const Index = () => {
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
     const [popular, setPopular] = useState([])
     const [loader, setLoader] = useState(false)
-
+    const [user, setUser] = useState({user:''})
 
 
 
@@ -59,6 +59,19 @@ const Index = () => {
                 localStorage.setItem("access", res.data.token, { path: "/" })
                 localStorage.setItem("refresh", telegramcode, { path: "/" })
                 if (res.status == 200) {
+                    
+                    base.get(`/me/`).then((res)=>{
+                        if (res.status == 200) {
+                            setUser({
+                                user: res.data.user
+                            });
+                        }else if (res.status == 401) {
+                            console.log(res);
+                        }else{
+                            console.log(res);
+                        }
+                        
+                    })
                     base.get(`/customer/product/popular`).then(({ status, data: { products } }) => {
                         if (status == 200) {
                             setPopular(products)
@@ -84,6 +97,7 @@ const Index = () => {
                         }
                     })
                 }else if(res.status == 401) {
+
                     Axios.get(`https://api.mareew.uz/shared/product/popular`).then(({ status, data: { products } }) => {
                         if (status == 200) {
                             setPopular(products)
@@ -215,7 +229,7 @@ const Index = () => {
                     </div>
                     :
                     <>
-                        <Navbar />
+                        <Navbar user={user.user}/>
                         <Banner popular={popular} />
                         {/* <OfferArea /> */}
                         <Products productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
