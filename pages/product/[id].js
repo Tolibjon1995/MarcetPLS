@@ -30,17 +30,13 @@ const Product = () => {
     let refresh = typeof window !== "undefined" ? window.localStorage.getItem('refresh') : false;
     useEffect(() => {
         setLoading(true)
-        if (refresh) {
-
-            if (id) {
-                
+        if (id) {
+            if (refresh) {
                 base.get(`/customer/product/${id}`).then((res) => {
                     setProducti(res.data.product);
                     setLoading(false)
                 })
-            }
-        } else {
-            if (id) {
+            } else {
                 setLoading(true)
                 axios.get(`https://api.mareew.uz/shared/product/${id}`).then((res) => {
                     setProducti(res.data.product);
@@ -48,8 +44,6 @@ const Product = () => {
                 })
             }
         }
-
-
     }, [id])
     // useEffect(() => {
 

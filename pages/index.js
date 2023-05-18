@@ -39,6 +39,7 @@ const Index = () => {
     const [user, setUser] = useState({user:''})
 
 
+    
 
     useEffect(() => {
         setLoader(true)
@@ -58,17 +59,14 @@ const Index = () => {
             }).then((res) => {
                 localStorage.setItem("access", res.data.token, { path: "/" })
                 localStorage.setItem("refresh", telegramcode, { path: "/" })
-                if (res.status == 200) {
+                
+                if (res.status == 200 ) {
                     
                     base.get(`/me/`).then((res)=>{
                         if (res.status == 200) {
                             setUser({
                                 user: res.data.user
                             });
-                        }else if (res.status == 401) {
-                            console.log(res);
-                        }else{
-                            console.log(res);
                         }
                         
                     })
@@ -213,7 +211,7 @@ const Index = () => {
 
 
 
-
+    console.log(user);
 
 
 

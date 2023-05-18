@@ -58,7 +58,14 @@ class MegaMenu extends Component {
         const {user} = this.props
         let telegramcode = typeof window !== "undefined" ? window.localStorage.getItem('access') : false;
         
-        
+        const glavni =()=>{
+            if (telegramcode) {
+                console.log(window.location.origin);
+            }else{
+                console.log('ishlamadi');
+            }
+
+        }
         return (
             <React.Fragment>
                 <div className="py-3"></div>
@@ -66,11 +73,11 @@ class MegaMenu extends Component {
                     <div id="navbar" className="comero-nav">
                         <div className="container">
                             <nav className="navbar navbar-expand-md navbar-light justify-content-between">
-                                <Link href="/">
+                                <div >
                                     <a className="navbar-brand">
-                                        <img src={require("../../images/logo.png")} alt="logo" width="175" height="30" />
+                                        <img onClick={()=>{glavni()}} src={require("../../images/logo.png")} alt="logo" width="175" height="30" />
                                     </a>
-                                </Link>
+                                </div>
 
                                 <button
                                     onClick={this.toggleNavbar}
@@ -132,8 +139,8 @@ class MegaMenu extends Component {
                                             telegramcode ? 
                                             <>
                                             <div className="d-flex align-items-center">
-                                                <img src={baseURL+user.image} alt="" />
-                                                <h3>{user.first_name != null ? user.first_name : '' + user.last_name != null ? user.last_name : ''}</h3>
+                                                <img src={baseURL+user?.image} alt="" />
+                                                <h3>{user?.first_name != null ? user?.first_name : '' + user?.last_name != null ? user?.last_name : ''}</h3>
                                             </div>
                                             </>
                                                 :
