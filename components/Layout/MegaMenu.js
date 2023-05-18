@@ -8,7 +8,8 @@ class MegaMenu extends Component {
     state = {
         display: false,
         searchForm: false,
-        collapsed: true
+        collapsed: true,
+        statusi: false
     };
 
     handleCart = () => {
@@ -53,23 +54,35 @@ class MegaMenu extends Component {
         const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
         const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
 
-        const {user,test} = this.props
+        const { user, test } = this.props
         let telegramcode2 = typeof window !== "undefined" ? window.localStorage.getItem('access') : false;
         let telegramcode3 = typeof window !== "undefined" ? window.localStorage.getItem('refresh') : false;
-        
-        const glavni =()=>{
+
+        const glavni = () => {
             if (telegramcode2) {
                 Router.push({
                     pathname: `/`,
                     query: { telegramcode: telegramcode3 }
                 })
-                
-            }else{
+
+            } else {
                 Router.push({
                     pathname: `/`,
                 })
             }
 
+        }
+        const glavni2 = () => {
+            Router.push({
+                pathname: `/account`,
+            })
+
+        }
+
+        const account = () => {
+            this.setState({
+                statusi: !this.state.statusi
+            })
         }
         return (
             <React.Fragment>
@@ -80,7 +93,7 @@ class MegaMenu extends Component {
                             <nav className="navbar navbar-expand-md navbar-light justify-content-between">
                                 <div >
                                     <a className="navbar-brand">
-                                        <img onClick={()=>{glavni()}} src={require("../../images/logo.png")} alt="logo" width="175" height="30" />
+                                        <img onClick={() => { glavni() }} src={require("../../images/logo.png")} alt="logo" width="175" height="30" />
                                     </a>
                                 </div>
 
@@ -141,13 +154,17 @@ class MegaMenu extends Component {
                                     </div>
                                     <div className="option-item">
                                         {
-                                            telegramcode2 ? 
-                                            <>
-                                            <div className="d-flex align-items-center">
-                                                <img src={baseURL+user?.image} alt="" />
-                                                <h3>{user?.first_name != null ? user?.first_name : '' + user?.last_name != null ? user?.last_name : ''}</h3>
-                                            </div>
-                                            </>
+                                            telegramcode2 ?
+                                                <>
+                                                    <div className="d-flex align-items-center popap" onClick={()=>{account()}}>
+                                                        <img src={baseURL + user?.image} alt="" />
+                                                        <h3>{user?.first_name != null ? user?.first_name : '' + user?.last_name != null ? user?.last_name : ''}</h3>
+
+                                                    </div>
+                                                    <div className={`pop_up ${this.state.statusi == true ? 'd-block' : 'd-none'}`}>
+                                                        <div className='h5' onClick={() => { glavni2() }}>Profil</div>
+                                                    </div>
+                                                </>
                                                 :
                                                 ''
                                         }
