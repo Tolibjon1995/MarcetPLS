@@ -1,8 +1,8 @@
 {
-    "name": "sneakerxwars",
-    "homepage": "http://sneakerxwars.com",
+    "name": "Mareew",
+    "homepage": "https://marcet-pls-97ty.vercel.app",
     "version": "3.7.0",
-    "description": "Novine - React Next eCommerce Templates",
+    "description": "Mareew - Elektron tijorat platformasi",
     "main": "index.js",
     "scripts": {
         "dev": "next",

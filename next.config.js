@@ -8,4 +8,15 @@ module.exports = {
   images: {
     disableStaticImages: true,
   },
+  reactStrictMode: true,
+  trailingSlash: false,
+  exportPathMap: async function (
+      defaultPathMap,
+      { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+      '/product/:id': { page: '/product/:id' },
+    }
+  },
 }
