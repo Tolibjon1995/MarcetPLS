@@ -153,6 +153,7 @@ const Index = () => {
             }).catch((err)=>{
                 localStorage.removeItem('access');
                 localStorage.removeItem('refresh');
+                localStorage.removeItem('test');
                     Axios.get(`https://api.mareew.uz/shared/product/popular`).then(({ status, data: { products } }) => {
                         if (status == 200) {
                             setPopular(products)
@@ -182,6 +183,9 @@ const Index = () => {
             })
 
         } else {
+            localStorage.removeItem('access');
+                localStorage.removeItem('refresh');
+                localStorage.removeItem('test');
             Axios.get(`https://api.mareew.uz/shared/product/popular`).then(({ status, data: { products } }) => {
                 if (status == 200) {
                     setPopular(products)
