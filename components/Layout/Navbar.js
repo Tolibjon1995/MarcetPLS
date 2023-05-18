@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const Navbar = ({user}) => {
 
-    
+    console.log(user);
     return (
         <React.Fragment>
             {/* <TopPanel /> */}

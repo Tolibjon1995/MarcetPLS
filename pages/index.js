@@ -67,6 +67,7 @@ const Index = () => {
                             setUser({
                                 user: res.data.user
                             });
+                            localStorage.setItem("test", JSON.stringify(res.data.user), { path: "/" })
                         }
                         
                     })
@@ -211,7 +212,7 @@ const Index = () => {
 
 
 
-    console.log(user);
+
 
 
 

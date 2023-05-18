@@ -28,6 +28,7 @@ const Product = () => {
 
 
     let refresh = typeof window !== "undefined" ? window.localStorage.getItem('refresh') : false;
+    let user = typeof window !== "undefined" ? JSON.parse(window.localStorage.getItem('test')) : false;
     useEffect(() => {
         setLoading(true)
         if (id) {
@@ -72,7 +73,7 @@ const Product = () => {
                     </div>
                     :
                     <>
-                        <Navbar />
+                        <Navbar user={user ? user : ''}/>
                         <Breadcrumb title="Belted chino trousers polo" />
 
                         <section className="products-details-area pt-60">

@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Link from 'next/link';
 import Cart from '../Modal/Cart';
+import Router, { withRouter } from 'next/router'
 
 class MegaMenu extends Component {
-    
-
-
     state = {
         display: false,
         searchForm: false,
@@ -55,14 +53,21 @@ class MegaMenu extends Component {
         const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
         const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
 
-        const {user} = this.props
-        let telegramcode = typeof window !== "undefined" ? window.localStorage.getItem('access') : false;
+        const {user,test} = this.props
+        let telegramcode2 = typeof window !== "undefined" ? window.localStorage.getItem('access') : false;
+        let telegramcode3 = typeof window !== "undefined" ? window.localStorage.getItem('refresh') : false;
         
         const glavni =()=>{
-            if (telegramcode) {
-                console.log(window.location.origin);
+            if (telegramcode2) {
+                Router.push({
+                    pathname: `/`,
+                    query: { telegramcode: telegramcode3 }
+                })
+                
             }else{
-                console.log('ishlamadi');
+                Router.push({
+                    pathname: `/`,
+                })
             }
 
         }
@@ -103,7 +108,7 @@ class MegaMenu extends Component {
                                 <div className="others-option">
                                     <div className="option-item">
                                         {
-                                            telegramcode ? ''
+                                            telegramcode2 ? ''
                                                 :
                                                 <Link href="/login" >
                                                     <a className='navbar_text_color'>Kirish</a>
@@ -136,7 +141,7 @@ class MegaMenu extends Component {
                                     </div>
                                     <div className="option-item">
                                         {
-                                            telegramcode ? 
+                                            telegramcode2 ? 
                                             <>
                                             <div className="d-flex align-items-center">
                                                 <img src={baseURL+user?.image} alt="" />
