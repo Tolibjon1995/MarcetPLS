@@ -35,14 +35,14 @@ const options = {
 }
 
 class RelatedProducts extends Component {
-    state = { 
+    state = {
         display: false,
         modalOpen: false,
         modalData: null
     };
 
-    componentDidMount(){ 
-        this.setState({ display: true }) 
+    componentDidMount() {
+        this.setState({ display: true })
     }
 
     openModal = () => {
@@ -54,49 +54,51 @@ class RelatedProducts extends Component {
     }
 
     handleModalData = (data) => {
-        this.setState({ 
+        this.setState({
             modalData: data
         });
     }
 
     render() {
+        let baseURL = 'https://api.mareew.uz/'
         let { products } = this.props;
+        console.log(products);
         const { modalOpen } = this.state;
         return (
             <React.Fragment>
                 <div className="related-products-area">
                     <div className="container">
                         <div className="section-title">
-                            <h2><span className="dot"></span> Related Products</h2>
+                            <h2><span className="dot"></span> O'xshash maxsulotlar</h2>
                         </div>
 
                         <div className="row">
-                            {this.state.display ? <OwlCarousel 
+                            {this.state.display ? <OwlCarousel
                                 className="trending-products-slides-two owl-carousel owl-theme"
                                 {...options}
                             >
-                                {products.map((data, idx) => (
+                                {products?.map((data, idx) => (
                                     <div className="col-lg-12 col-md-12" key={idx}>
                                         <div className="single-product-box">
                                             <div className="product-image">
                                                 <Link href="/product/[id]" as={`/product/${data.id}`}>
                                                     <a>
-                                                        <img src={data.image} alt="image" />
-                                                        <img src={data.imageHover} alt="image" />
+                                                        <img src={baseURL + data.images} alt="image" />
+                                                        {/* <img src={data.imageHover} alt="image" /> */}
                                                     </a>
                                                 </Link>
 
                                                 <ul>
                                                     <li>
                                                         <Link href="#">
-                                                            <a 
-                                                                data-tip="Quick View" 
-                                                                data-place="left" 
+                                                            <a
+                                                                data-tip="Quick View"
+                                                                data-place="left"
                                                                 onClick={e => {
-                                                                        e.preventDefault(); 
-                                                                        this.openModal();
-                                                                        this.handleModalData(data)
-                                                                    }
+                                                                    e.preventDefault();
+                                                                    this.openModal();
+                                                                    this.handleModalData(data)
+                                                                }
                                                                 }
                                                             >
                                                                 <i className="far fa-eye"></i>
@@ -121,23 +123,26 @@ class RelatedProducts extends Component {
                                             </div>
 
                                             <div className="product-content">
+                                                <h4>
+                                                    MAREEW
+                                                </h4>
                                                 <h3>
                                                     <Link href="/product/[id]" as={`/product/${data.id}`}>
-                                                        <a>{data.title}</a>
+                                                        <a>{data.name}</a>
                                                     </Link>
                                                 </h3>
 
                                                 <div className="product-price">
-                                                        <span className="new-price">${data.price}</span>
+                                                    <span className="new-price">${data.price}</span>
                                                 </div>
 
-                                                <div className="rating">
+                                                {/* <div className="rating">
                                                     <i className="fas fa-star"></i>
                                                     <i className="fas fa-star"></i>
                                                     <i className="fas fa-star"></i>
                                                     <i className="fas fa-star"></i>
                                                     <i className="far fa-star"></i>
-                                                </div>
+                                                </div> */}
                                                 <AddToCart {...data} />
                                             </div>
                                         </div>
@@ -147,10 +152,10 @@ class RelatedProducts extends Component {
                         </div>
                     </div>
                 </div>
-                { modalOpen ? <QuickView 
-                    closeModal={this.closeModal} 
+                {modalOpen ? <QuickView
+                    closeModal={this.closeModal}
                     modalData={this.state.modalData}
-                /> : '' }
+                /> : ''}
             </React.Fragment>
         );
     }

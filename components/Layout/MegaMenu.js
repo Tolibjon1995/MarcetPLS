@@ -86,10 +86,12 @@ class MegaMenu extends Component {
         }
         return (
             <React.Fragment>
-                <div className="py-3"></div>
+                
                 <div className="navbar-area">
+                
                     <div id="navbar" className="comero-nav">
                         <div className="container">
+                        <div className="py-3"></div>
                             <nav className="navbar navbar-expand-md navbar-light justify-content-between">
                                 <div >
                                     <a className="navbar-brand">

@@ -15,6 +15,7 @@ import base from '../../api/base';
 const Product = () => {
     const [producti, setProducti] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [category, setCategory] = useState(null)
 
     const router = useRouter()
     const { id } = router?.query
@@ -36,6 +37,11 @@ const Product = () => {
                 base.get(`/customer/product/${id}`).then((res) => {
                     setProducti(res.data.product);
                     setLoading(false)
+                    
+                    base.get(`/customer/category/${res.data.product.category.id}`).then((res)=>{
+                        setCategory(res.data.category.products)
+                        
+                    })
                 })
             } else {
                 setLoading(true)
@@ -85,7 +91,7 @@ const Product = () => {
                                 </div>
                             </div>
 
-                            <RelatedProducts products={products} CompareProducts={addedItemsToCompare} />
+                            <RelatedProducts products={category} CompareProducts={addedItemsToCompare} />
 
                             <Facility />
                         </section>

@@ -307,7 +307,7 @@ const Products = ({ productss }) => {
                                     className="current"
                                 >
                                     <span className="tabs-nav-text">
-                                        <span className="dot"></span> Latest Products
+                                        <span className="dot"></span> 
                                     </span>
                                 </li>
 
