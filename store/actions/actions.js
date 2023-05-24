@@ -8,24 +8,26 @@ import {
     RESET_CART,
     ADD_TO_COMPARE,
     REMOVE_ITEM_FROM_COMPARE,
-    GET_PR
+    GET_CARD
 } from './action-types/action-names'
 
+import base from '../../api/base';
+
 //add cart action
-export const getProducts = (id) => {
-    Axios.get(`https://api.mareew.uz/shared/product/`).then((res) => {
-        console.log(res);
-        if (res.status == 200) {
-            return {
-                type: GET_PR,
-                payload: res.data.products
-            }
-
+export const getCard = () => (dispatch, getState) => {
+    base.get(`/customer/cart`).then((res)=>{
+        
+        return{
+            type: GET_CARD,
+            payload: res.data.carts
         }
-
+        
+        // return({
+        //     type: types.GET_CARD,
+        //     payload: res.data.carts
+        // })
     })
-    
-}
+};
 export const addToCart = (id) => {
     return {
         type: ADD_TO_CART,

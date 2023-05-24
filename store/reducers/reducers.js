@@ -28,8 +28,9 @@ import {
     RESET_CART,
     ADD_TO_COMPARE,
     REMOVE_ITEM_FROM_COMPARE,
-    GET_PR
+    GET_CARD
 } from '../actions/action-types/action-names'
+
 
 const initialState = {
     products: products,
@@ -52,8 +53,17 @@ const initialState = {
 
 const reducers = (state = initialState, action) => {
    
+    if(action.type === GET_CARD){
+        console.log('ishladi');
+        return {
+            ...state,
+            products2: state.products2 = action.payload 
+        }
+        
+        
+    }
     if(action.type === ADD_TO_CART){
-        let addedItem = state.products.find(item => item.id === action.id) 
+        let addedItem = state.products.find(item => item === action.payload) 
         || state.productsCollectionSix.find(item => item.id === action.id)
         || state.productsCollectionSeven.find(item => item.id === action.id)
         || state.productsCollectionEight.find(item => item.id === action.id)
@@ -73,7 +83,8 @@ const reducers = (state = initialState, action) => {
                 total: state.total + addedItem.price 
             }
         } else {
-            addedItem.quantity = 1;
+            console.log(addedItem);
+            addedItem.quantity += 1;
             //calculating the total
             let newTotal = state.total + addedItem.price 
             
@@ -209,12 +220,12 @@ const reducers = (state = initialState, action) => {
             shipping: 0
         }
     }
-    if(action.type === GET_PR){
-        return {
-            ...state,
-            products2: action.payload
-        }
-    }
+    // if(action.type === GET_PR){
+    //     return {
+    //         ...state,
+    //         products2: action.payload
+    //     }
+    // }
     
     else {
         return state

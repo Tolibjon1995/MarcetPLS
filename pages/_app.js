@@ -20,14 +20,17 @@ import "swiper/css/thumbs";
 import Layout from '../components/_App/Layout';
 import { Provider } from 'react-redux';
 // import withRedux from 'next-redux-wrapper';
-import { useStore } from '../store/reducers/reducers';
+import { store } from '../redux/store';
+
 
 const MyApp = ({ Component, pageProps }) => {
-    const store = useStore(pageProps.initialReduxState)
+
     return (
         <Layout>
             <Provider store={store}>
-                <Component {...pageProps} />
+
+                    <Component {...pageProps} />
+
             </Provider>
         </Layout>
     );

@@ -62,7 +62,7 @@ class RelatedProducts extends Component {
     render() {
         let baseURL = 'https://api.mareew.uz/'
         let { products } = this.props;
-        console.log(products);
+
         const { modalOpen } = this.state;
         return (
             <React.Fragment>
@@ -143,7 +143,7 @@ class RelatedProducts extends Component {
                                                     <i className="fas fa-star"></i>
                                                     <i className="far fa-star"></i>
                                                 </div> */}
-                                                <AddToCart {...data} />
+                                                <AddToCart data={data} />
                                             </div>
                                         </div>
                                     </div>

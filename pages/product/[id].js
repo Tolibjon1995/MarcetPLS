@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import Navbar from '../../components/Layout/Navbar';
 import Breadcrumb from '../../components/Common/Breadcrumb';
@@ -12,16 +12,17 @@ import Facility from '../../components/shop-style-one/Facility';
 import axios from 'axios';
 import base from '../../api/base';
 
+
 const Product = () => {
     const [producti, setProducti] = useState(null)
     const [loading, setLoading] = useState(false)
     const [category, setCategory] = useState(null)
-
+    const dispatch = useDispatch()
     const router = useRouter()
     const { id } = router?.query
 
 
-    const product = useSelector((state) => state.products.find(item => item.id === parseInt(id)))
+    // const product = useSelector((state) => state.products.find(item => item.id === parseInt(id)))
 
     const products = useSelector((state) => state.products)
     const addedItemsToCompare = useSelector((state) => state.addedItemsToCompare)
@@ -40,7 +41,6 @@ const Product = () => {
                     
                     base.get(`/customer/category/${res.data.product.category.id}`).then((res)=>{
                         setCategory(res.data.category.products)
-                        
                     })
                 })
             } else {
@@ -48,26 +48,19 @@ const Product = () => {
                 axios.get(`https://api.mareew.uz/shared/product/${id}`).then((res) => {
                     setProducti(res.data.product);
                     setLoading(false)
+                    axios.get(`https://api.mareew.uz/shared/category/${res.data.product.category.id}`).then((res) => {
+                    setCategory(res.data.category.products)
+                    setLoading(false)
                 })
+                })
+                
             }
         }
     }, [id])
-    // useEffect(() => {
 
-    //     if(id){
-    //         setLoading(true)
-    //         axios.get(`https://api.mareew.uz/shared/product/${id}`).then(({status, data: {product}}) => {
+    
 
-    //             if (status == 200) {
-    //                 setProducti(product);
-    //                 setLoading(false)
-    //             } else if (status == 400) {
-    //             }
-    //         })
-    //     }
-    // }, [id])
-
-
+    
     return (
         <React.Fragment>
             {

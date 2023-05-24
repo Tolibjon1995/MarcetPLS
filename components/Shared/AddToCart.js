@@ -1,35 +1,52 @@
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
+import Cookies from 'js-cookie';
+import base from '../../api/base';
 
-const AddToCart = ({id}) => {
+import { get_card, post_card } from '../../redux/cardProduct/card';
+
+const AddToCart = ({ data }) => {
     const dispatch = useDispatch()
+    dispatch(get_card(`/customer/cart`))
+    let refresh = typeof window !== "undefined" ? window.localStorage.getItem('refresh') : false;
+    const handleAddToCart = (data) => {
+        if (refresh) {
+            dispatch(post_card(data))
+            
+        } else {
+            if (Cookies.get('cart')) {
+                let newData = []
+                newData = Cookies.get('cart')
+                newData = JSON.parse(newData)
+                newData.push(data)
+                Cookies.set('cart', JSON.stringify(newData));
 
-    const handleAddToCart = (id) => {
-        dispatch({
-            type: 'ADD_TO_CART',
-            id
-        })
 
-        toast.success('Added to the cart', {
-            position: "bottom-left",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-        });
+                console.log(newData);
+            }
+
+            toast.success('Savatchaga saqlandi', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true
+            });
+        }
+
     }
 
-    return(
+    return (
         <Link href="#">
-            <a 
+            <a
                 className="btn btn-light"
                 onClick={(e) => {
-                    e.preventDefault(); handleAddToCart(id)
+                    e.preventDefault(); handleAddToCart(data)
                 }}
             >
-                Add to Cart
+                Savatcha
             </a>
         </Link>
     )
