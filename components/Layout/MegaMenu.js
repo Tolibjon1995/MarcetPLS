@@ -55,11 +55,7 @@ const MegaMenu = ({ user, test }) => {
         setStatusi(!statusi)
     }
     
-    let a = Cookies.get('cart')
-    useEffect(() => {
-        dispatch(getCard())
-        
-    }, [])
+
     
     return (
         <React.Fragment>
