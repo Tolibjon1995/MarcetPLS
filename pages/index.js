@@ -23,7 +23,7 @@ import { useRouter } from 'next/router';
 import base from '../api/base';
 import TestPage from '../components/shop-style-one/TestPage';
 
-const Index = () => {
+const App = () => {
     const router = useRouter()
     const { telegramcode } = router?.query
 
@@ -242,13 +242,13 @@ const Index = () => {
                             brend?.map((item, index) => {
 
                                 return (
-                                    <>
+                                    <React.Fragment key={index}>
                                         <ProductOffer
                                             bgImg={item}
 
                                             left={index % 2 === 0 ? true : false} />
                                         <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
-                                    </>
+                                    </React.Fragment>
                                 )
                             })
                         }
@@ -265,7 +265,7 @@ const Index = () => {
     );
 }
 
-export default Index;
+export default App;
 {/* <ProductOffer  left={true} />
             <TrendingProductsSlide productss={productss.slice(0, 8)} CompareProducts={addedItemsToCompare} />
             <ProductOffer left={false} />

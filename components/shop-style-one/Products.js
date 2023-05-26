@@ -418,11 +418,11 @@ const Products = ({ productss }) => {
                                   data-place="left"
                                 >
                                   {isFavourite(data?.id) ? (
-                                    <i className="text-red fs-24 far fa-heart"></i>
-                                  ) : (
                                     <i
                                       className={`fa fa-solid fs-24 text-red fa-heart`}
                                     ></i>
+                                  ) : (
+                                    <i className="text-red fs-24 far fa-heart"></i>
                                   )}
                                 </div>
                               </div>

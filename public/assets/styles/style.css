@@ -6308,9 +6308,9 @@ Products Details Area CSS
   left: 2px;
   fill: none;
   stroke: #ffffff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  strokeWidth: 2;
+  strokeLinecap: round;
+  strokeLinejoin: round;
   stroke-dasharray: 16px;
   stroke-dashoffset: 16px;
   -webkit-transition: all 0.3s ease;
