@@ -1651,7 +1651,6 @@ Main Banner Area CSS
   background-image: url(../../../images/main-banner4.jpg);
 }
 
-.main-banner-content {}
 
 .main-banner-content span {
   font-size: 14px;
@@ -6393,11 +6392,9 @@ Products Details Area CSS
 .product-details-content .custom-payment-options .payment-methods a img {
   width: 40px;
 }
-
-.products-details-tab {
-  /* margin-top: -80px; */
+.c-pointer {
+  cursor: pointer;
 }
-
 .products-details-tab .tabs {
   list-style-type: none;
   margin: 0 0 30px;

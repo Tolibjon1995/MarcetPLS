@@ -55,7 +55,7 @@ class ProductsCard extends Component {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
+                                        <Link>
                                             <a data-tip="Add to Wishlist" data-place="left">
                                                 <i className="far fa-heart"></i>
                                             </a>

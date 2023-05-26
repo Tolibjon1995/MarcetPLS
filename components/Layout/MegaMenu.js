@@ -118,10 +118,10 @@ const MegaMenu = ({ user, test }) => {
                                 <div className="option-item">
                                     <Link href="#">
                                         <a
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                this.handleCart()
-                                            }}
+                                            // onClick={(e) => {
+                                            //     e.preventDefault();
+                                            //     this.handleCart()
+                                            // }}
                                             className='navbar_text_color'
                                         >
                                             <svg width="25" height="22" viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,88 +1,90 @@
-import Axios from 'axios';
+import Axios from "axios";
 import {
-    ADD_TO_CART,
-    REMOVE_ITEM,
-    SUB_QUANTITY,
-    ADD_QUANTITY,
-    ADD_QUANTITY_WITH_NUMBER,
-    RESET_CART,
-    ADD_TO_COMPARE,
-    REMOVE_ITEM_FROM_COMPARE,
-    GET_CARD
-} from './action-types/action-names'
+  ADD_TO_CART,
+  REMOVE_ITEM,
+  SUB_QUANTITY,
+  ADD_QUANTITY,
+  ADD_QUANTITY_WITH_NUMBER,
+  RESET_CART,
+  ADD_TO_COMPARE,
+  REMOVE_ITEM_FROM_COMPARE,
+  GET_CARD,
+} from "./action-types/action-names";
 
-import base from '../../api/base';
+import base from "../../api/base";
 
 //add cart action
 export const getCard = () => (dispatch, getState) => {
-    base.get(`/customer/cart`).then((res)=>{
-        
-        return{
-            type: GET_CARD,
-            payload: res.data.carts
-        }
-        
-        // return({
-        //     type: types.GET_CARD,
-        //     payload: res.data.carts
-        // })
+  base
+    .get(`/customer/cart`)
+    .then((res) => {
+      return {
+        type: GET_CARD,
+        payload: res.data.carts,
+      };
+
+      // return({
+      //     type: types.GET_CARD,
+      //     payload: res.data.carts
+      // })
     })
+    .catch((err) => err);
 };
 export const addToCart = (id) => {
-    return {
-        type: ADD_TO_CART,
-        id
-    }
-}
+  return {
+    type: ADD_TO_CART,
+    id,
+  };
+};
 //remove item action
 export const removeItem = (id) => {
-    return {
-        type: REMOVE_ITEM,
-        id
-    }
-}
+  return {
+    type: REMOVE_ITEM,
+    id,
+  };
+};
 //subtract qt action
 export const subtractQuantity = (id) => {
-    return {
-        type: SUB_QUANTITY,
-        id
-    }
-}
+  return {
+    type: SUB_QUANTITY,
+    id,
+  };
+};
 //add qt action
 export const addQuantity = (id) => {
-    return {
-        type: ADD_QUANTITY,
-        id
-    }
-}
+  return {
+    type: ADD_QUANTITY,
+    id,
+  };
+};
 
 //add qt action with quantity number
 export const addQuantityWithNumber = (id, qty) => {
-    return {
-        type: ADD_QUANTITY_WITH_NUMBER,
-        id,
-        qty
-    }
-}
+  return {
+    type: ADD_QUANTITY_WITH_NUMBER,
+    id,
+    qty,
+  };
+};
 
 // Reset cart after form submit
 export const resetCart = () => {
-    return {
-        type: RESET_CART
-    }
-}
+  return {
+    type: RESET_CART,
+  };
+};
 
 //add compare action
 export const addToCompare = (id) => {
-    return {
-        type: ADD_TO_COMPARE,
-        id
-    }
-}
+  return {
+    type: ADD_TO_COMPARE,
+    id,
+  };
+};
 //remove item from compare action
 export const removeItemFromCompare = (id) => {
-    return {
-        type: REMOVE_ITEM_FROM_COMPARE,
-        id
-    }
-}
+  return {
+    type: REMOVE_ITEM_FROM_COMPARE,
+    id,
+  };
+};
