@@ -8,11 +8,12 @@ import { get_card, post_card } from '../../redux/cardProduct/card';
 
 const AddToCart = ({ data }) => {
     const dispatch = useDispatch()
-    dispatch(get_card(`/customer/cart`))
+    
     let refresh = typeof window !== "undefined" ? window.localStorage.getItem('refresh') : false;
     const handleAddToCart = (data) => {
         if (refresh) {
             dispatch(post_card(data))
+            dispatch(get_card(`/customer/cart`))
             
         } else {
             if (Cookies.get('cart')) {
